@@ -1,0 +1,8 @@
+@import '../../main.css';
+
+nav{
+    background-color: var(--color-primary);
+}
+a{
+    color: var(--color-white);
+}
