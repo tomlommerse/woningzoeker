@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../styles/card.css';
-import Test from '../../assets/test.jpg';
+import Test from '../../assets/Test_2.jpg';
 import Tags from './tags';
 
 
