@@ -6,6 +6,21 @@ const HomePage = () => {
     return (
     <main>
         <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+        <h1>hallo</h1>
+
     </main>
     );
 };

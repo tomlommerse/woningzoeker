@@ -5,3 +5,8 @@
     --color-white: #EDF2EF;
     --color-black: #000000;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+}

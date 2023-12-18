@@ -1,8 +1,34 @@
 @import '../../main.css';
 
-nav{
+nav {
     background-color: var(--color-primary);
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-a{
+
+.navButton{
     color: var(--color-white);
+    display: grid;
+    grid-template-areas: 
+    "icon"
+    "text";
+    /* width: 100%; */
+}
+
+.navButton > img{
+    grid-area: icon;
+}
+
+.navButton > span{
+    grid-area: text;
+}
+
+.navSvg {
+    filter: invert();
+    width: 100%;
 }
