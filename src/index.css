@@ -1,5 +1,19 @@
 @import 'main.css';
 
+<<<<<<< HEAD
 .app{
     position: relative;
+=======
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --color-primary: #08192F;
+  --color-secondary: #007bff;
+  --color-tertiary: #706EBC;
+  --color-white: #EDF2EF;
+  --color-black: #000000;
+>>>>>>> origin/card-branch
 }
