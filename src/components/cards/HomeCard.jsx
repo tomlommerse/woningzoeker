@@ -7,7 +7,6 @@ import Tags from './tags';
 function HomeCard() {
   return (
     <section className='content'>
-        
         <img id='img' src={Test} alt='house'/>
         <h3 id='adres'>adress</h3>
         <h3 id='price'>$100.000</h3>  
@@ -20,7 +19,6 @@ function HomeCard() {
             <Tags tagname={'3 verdiepingen'}/>
             <Tags tagname={'energielabel A'}/>
         </div>
-              
     </section>
   )
 }

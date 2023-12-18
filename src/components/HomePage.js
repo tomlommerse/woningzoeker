@@ -1,26 +1,12 @@
 // src/components/HomePage.js
 
 import React from 'react';
+import HomeCard from './cards/HomeCard';
 
 const HomePage = () => {
     return (
     <main>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-        <h1>hallo</h1>
-
+        <HomeCard />
     </main>
     );
 };
