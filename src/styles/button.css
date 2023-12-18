@@ -1,0 +1,24 @@
+.button{
+    margin: 20px 20px;
+    padding: 5px 30px;
+    border-radius: 60px;
+    background-color: var(--color-orange);
+    text-align: center;
+    width: 100px;
+    
+}
+
+.buttonnaam{
+    margin: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.detailcontent{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
