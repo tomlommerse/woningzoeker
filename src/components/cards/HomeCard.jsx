@@ -1,26 +1,27 @@
-import React from 'react'
+import React from 'react';
 import '../../styles/card.css';
 import Test from '../../assets/Test_2.jpg';
 import Tags from './tags';
 
+function HomeCard({ home, price, type, parking, m2, room_count }) {
+  const parkingTag = `${parking} parkeerplaatsen`;
+  const m2Tag = `${m2} m²`;
+  const room_countTag = `${room_count} kamers`;
 
-function HomeCard() {
   return (
     <section className='content'>
-        <img id='img' src={Test} alt='house'/>
-        <h3 id='adres'>adress</h3>
-        <h3 id='price'>$100.000</h3>  
-        <div id='line'></div>
-        <div className='taglist'>
-            <Tags tagname={'stadswoning'}/>
-            <Tags tagname={'40^2'}/>
-            <Tags tagname={'2 kamers'}/>
-            <Tags tagname={'1 badkamer'}/>
-            <Tags tagname={'3 verdiepingen'}/>
-            <Tags tagname={'energielabel A'}/>
-        </div>
+      <img id='img' src={Test} alt='house' />
+      <h3 id='adres'>{home}</h3>
+      <h3 id='price'>€{price}</h3>
+      <div id='line'></div>
+      <div className='taglist'>
+        <Tags tagname={type} />
+        <Tags tagname={parkingTag} />
+        <Tags tagname={m2Tag} />
+        <Tags tagname={room_countTag} />
+      </div>
     </section>
-  )
+  );
 }
 
-export default HomeCard
+export default HomeCard;
