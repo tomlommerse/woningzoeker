@@ -14,13 +14,16 @@ const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 function detailpage() {
   return (
     <section>
-        <ImageSlider imageUrls={FOTOS}/>
-        <section className='detailcontent'>
-        <Button className='button1' buttonnaam={'Inschrijven'}/>
-        <Button className='button2' buttonnaam={'Brochure'}/>
-        
-        </section>
+      <div style={{ maxWidth: "1200px", width: "100%", height: "300px", margin: "0 auto"}}>
+      <ImageSlider imageUrls={FOTOS}/>
+      </div>
+      <section className='detailcontent'>
+      <Button buttonnaam={'Inschrijven'}/>
+      <Button buttonnaam={'Brochure'}/>
+      
+      </section>
     </section>
+      
 
   )
 }
