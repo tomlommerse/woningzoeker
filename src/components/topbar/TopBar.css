@@ -2,7 +2,10 @@
 
 .topbar{
     background-color: var(--color-primary);
+    width: 100vw;
+    z-index: 10;
     height: 10vh;
+    position: fixed;
 }
 
 .topbar > img{

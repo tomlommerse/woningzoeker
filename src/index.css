@@ -3,3 +3,7 @@
 .app{
     position: relative;
 }
+
+main{
+  padding-top: 10vh;
+}
