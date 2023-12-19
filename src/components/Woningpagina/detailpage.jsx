@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './button';
-import TopBar from '../TopBar';
+
 import Test1 from '../../assets/Test_2.jpg';
 import Test2 from '../../assets/Test_3.jpg';
 import Test3 from '../../assets/Test_4.jpg';
