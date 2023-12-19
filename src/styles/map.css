@@ -1,6 +1,34 @@
-.mapImg{
+.mapImgContainer{
     margin: 0;
     padding: 0;
-    width: 100vw;
-    margin-top: 100px;
+    width: 400;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+}
+.mapImg{
+    width: auto;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mapImgLeft{
+    left: 0;
+    right: auto;
+    transform: translateX(0);
+}
+
+.mapImgRight{
+    right: 0;
+    left: auto;
+    transform: translateX(0);
+}
+
+.mapImgNavbutton{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
