@@ -3,7 +3,7 @@
 nav {
     background-color: var(--color-primary);
     width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 10vh;
     display: flex;
