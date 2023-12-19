@@ -1,0 +1,12 @@
+@import '../../../main.css';
+
+.filter_button {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 15vw;
+    background-color: var(--color-tertiary);
+    border-radius: 10px 0 0 10px;
+}

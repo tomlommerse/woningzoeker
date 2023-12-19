@@ -9,4 +9,4 @@ function button({buttonnaam}) {
   )
 }
 
-export default button
+export default button;
