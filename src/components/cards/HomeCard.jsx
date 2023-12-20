@@ -9,12 +9,13 @@ function HomeCard({ home, price, type, parking, m2, room_count }) {
   const room_countTag = `${room_count} kamers`;
 
   return (
-    <section className='content'>
-      <img id='img' src={Test} alt='house' />
-      <h3 id='adres'>{home}</h3>
-      <h3 id='price'>€{price}</h3>
-      <div id='line'></div>
-      <div className='taglist'>
+    <section className='homeCard'>
+      <div class="imgArea">
+        <img id='img' src={Test} alt='house' />
+        <p id='adres'>{home}</p>
+        <p id='price'>€{price}</p>
+      </div>
+      <div className='tagList'>
         <Tags tagname={type} />
         <Tags tagname={parkingTag} />
         <Tags tagname={m2Tag} />
