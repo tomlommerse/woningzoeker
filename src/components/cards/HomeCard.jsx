@@ -10,7 +10,7 @@ function HomeCard({ home, price, type, parking, m2, room_count }) {
   const room_countTag = `${room_count} kamers`;
 
   return (
-      <Link className='homeCard' to="/detailpagina">
+      <Link className='homeCard' to="/detailpage">
         <div className="imgArea">
           <img id='img' src={Test} alt='house' />
           <p id='adres'>{home}</p>
