@@ -10,9 +10,10 @@ const { plots } = jsonData;
 
     return (
     <main>
-        {plots.map((plot) => (
+        {/* {plots.map((plot) => (
         <Detailpage key={plot.number} home={plot.number} price={plot.price} type={plot.type} parking={plot.parking_count} m2={plot.living_surface} room_count={plot.room_count}/>
-        ))}
+        ))} */}
+        <Detailpage/>
         {/* {plots.map((plot) => (
         <HomeCard key={plot.number} home={plot.number} price={plot.price} type={plot.type} parking={plot.parking_count} m2={plot.living_surface} room_count={plot.room_count}/>
         ))}
