@@ -2,7 +2,7 @@
 
 nav {
     background-color: var(--color-primary);
-    width: 100vw;
+    width: 101%;
     position: fixed;
     bottom: 0;
     height: 10vh;

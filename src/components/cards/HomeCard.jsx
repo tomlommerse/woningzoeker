@@ -11,11 +11,10 @@ function HomeCard({ home, price, type, parking, m2, room_count }) {
 
   return (
       <Link className='homeCard' to="/detailpage">
-        <div className="imgArea">
-          <img id='img' src={Test} alt='house' />
-          <p id='adres'>{home}</p>
-          <p id='price'>€{price}</p>
-        </div>
+        <img id='img' src={Test} alt='house' />
+        <h3 id='adres'>{home}</h3>
+        <h3 id='price'>€{price}</h3>
+        
         <div className='tagList'>
           <Tags tagname={type} />
           <Tags tagname={parkingTag} />
