@@ -8,7 +8,7 @@ import FilterHuis from './FilterHuis/FilterHuis';
 
 const HomePage = () => {
     const { plots } = jsonData;
-    const huizen = plots; // Gebruik plots in plaats van [jsonData]
+    const huizen = plots; // voor lijn 17, vond het een makkelijke fix
     const [filterTextValue, updateFilterText] = useState('all');
 
     function opFilterHuis(filterWaarde) {
@@ -32,7 +32,7 @@ const HomePage = () => {
             <FilterHuis filterHuis={opFilterHuis}></FilterHuis>
             {filterHuizenLijst.map((huis) => (
             <HomeCard
-            key={huis.id}  // Gebruik een andere unieke eigenschap als key, bijvoorbeeld 'id'
+            key={huis.id}  
             home={huis.number}
             price={huis.price}
             type={huis.type}
