@@ -20,8 +20,10 @@ const HomePage = () => {
             return huis.status === "verkocht";
         } else if (filterTextValue === 'beschikbaar') {
             return huis.status === "te-koop";
+        } else if (filterTextValue === 'in-optie'){
+            return huis.status === "in-optie";
         } else {
-            return huis; // Als de filter 'alles' is, retourneer alle huizen
+            return huis;
         }
     });
 
@@ -29,17 +31,17 @@ const HomePage = () => {
         <main>
             <FilterHuis filterHuis={opFilterHuis}></FilterHuis>
             {filterHuizenLijst.map((huis) => (
-                <HomeCard
-                    key={huis.number}
-                    home={huis.number}
-                    price={huis.price}
-                    type={huis.type}
-                    parking={huis.parking_count}
-                    m2={huis.living_surface}
-                    room_count={huis.room_count}
-                    status={huis.status}
-                />
-            ))}
+            <HomeCard
+            key={huis.id}  // Gebruik een andere unieke eigenschap als key, bijvoorbeeld 'id'
+            home={huis.number}
+            price={huis.price}
+            type={huis.type}
+            parking={huis.parking_count}
+            m2={huis.living_surface}
+            room_count={huis.room_count}
+            status={huis.status}
+    />
+))}
         </main>
     );
 };

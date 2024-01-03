@@ -10,6 +10,7 @@ function FilterHuis(props) {
                 <option value="alles">Alles</option>
                 <option value="beschikbaar">Beschikbaar</option>
                 <option value="verkocht">Verkocht</option>
+                <option value="in-optie">in-optie</option>
             </select>
         </section>
     )
