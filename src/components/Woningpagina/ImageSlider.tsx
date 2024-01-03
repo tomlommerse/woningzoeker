@@ -26,7 +26,7 @@ function ImageSlider({imageUrls}:ImageSliderProps){
         
     }
     return <div style={{width: "100%", height: "300px", position: "relative"}}>
-        <img src={imageUrls[imageIndex]} className="img-silder-img" />
+        <img src={imageUrls[imageIndex]} className="img-silder-img" alt="img"/>
         <button onClick={showPrevImage} className="img-slider-btn" style={{left: 0}}>
             <ArrowBigLeft/>
         </button>

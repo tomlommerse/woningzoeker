@@ -2,10 +2,11 @@
 
 .topbar{
     background-color: var(--color-primary);
-    width: 100vw;
+    width: 101%;
     z-index: 10;
     height: 10vh;
     position: fixed;
+    transform: translateY(-1px);
 }
 
 .topbar > img{
