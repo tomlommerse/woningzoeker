@@ -3,10 +3,11 @@ import '../../styles/card.css';
 import Test from '../../assets/Test_2.jpg';
 import Tags from './tags';
 
-function HomeCard({ home, price, type, parking, m2, room_count }) {
+function HomeCard({ home, price, type, parking, m2, room_count, status }) {
   const parkingTag = `${parking} parkeerplaatsen`;
   const m2Tag = `${m2} m²`;
   const room_countTag = `${room_count} kamers`;
+  const statusTag = `${status}`;
 
   return (
     <section className='content'>
@@ -19,6 +20,7 @@ function HomeCard({ home, price, type, parking, m2, room_count }) {
         <Tags tagname={parkingTag} />
         <Tags tagname={m2Tag} />
         <Tags tagname={room_countTag} />
+        <Tags tagname={statusTag} />
       </div>
     </section>
   );
