@@ -1,37 +1,30 @@
-
-
-.content{
+.homeCard{
     background-color: var(--color-primary);
     color: var(--color-white);
     position: relative;
-    display: inline-block;
-    width: 351px;
+    display: grid;
+    width: 80vw;
     border-radius: 15px;
-    margin: 5%;
+    margin: 10vw;
 }
 
-#line{
-    position: absolute;
-    right: 27px;
-    top: 226.5px;
-    width: 271px;
-    height: 2px;
-    background-color: var(--color-tertiary);
+.imgArea{
+        display: grid;
 }
 
 #img{
-    width: 90%;
+    width: 100%;
     padding: 5%;
     border-radius: 30px;
 }
 
 #price{
     position: absolute;
-    top: 10px;
-    right: 25px;
+    top: 8%;
+    right: 8%;
     background-color: #04B900;
     padding: 5px 10px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 #adres{
@@ -43,7 +36,7 @@
     border-radius: 0px 13px;
 }
 
-.taglist{
+.tagList{
     display: inline-flex;
     flex-wrap: wrap;
     margin-left: 17px;

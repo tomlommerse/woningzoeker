@@ -1,12 +1,12 @@
 import React from 'react'
-import Button from './button';
+import Button from './Woningpagina/button.jsx';
 
-import Test1 from '../../assets/Test_2.jpg';
-import Test2 from '../../assets/Test_3.jpg';
-import Test3 from '../../assets/Test_4.jpg';
-import Test4 from '../../assets/Test_5.jpg';
-import Test5 from '../../assets/Test_6.jpg';
-import ImageSlider from './ImageSlider.tsx';
+import Test1 from '../assets/Test_2.jpg';
+import Test2 from '../assets/Test_3.jpg';
+import Test3 from '../assets/Test_4.jpg';
+import Test4 from '../assets/Test_5.jpg';
+import Test5 from '../assets/Test_6.jpg';
+import ImageSlider from './Woningpagina/ImageSlider.tsx';
 
 const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 
