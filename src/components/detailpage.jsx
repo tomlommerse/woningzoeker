@@ -11,7 +11,10 @@ import ImageSlider from './Woningpagina/ImageSlider.tsx';
 const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 
 
-function detailpage() {
+function detailpage({ home, price, type, parking, m2, room_count }) {
+  const parkingTag = `${parking} parkeerplaatsen`;
+  const m2Tag = `${m2} m²`;
+  const room_countTag = `${room_count} kamers`;
   return (
     <section>
       <div style={{ maxWidth: "1200px", width: "100%", height: "300px", margin: "0 auto"}}>
@@ -20,8 +23,17 @@ function detailpage() {
       <section className='detailcontent'>
       <Button buttonnaam={'Inschrijven'}/>
       <Button buttonnaam={'Brochure'}/>
-      
       </section>
+      {/* <h3>{home}</h3>
+      <h3>Opp: {m2Tag}</h3>
+      <h3>€{price}</h3>
+      <p>
+        Deze gezellige {type}
+        woning is nu te koop vanaf {price} euro
+        en is inclusief {parkingTag}.
+        De woning telt {room_countTag}. Het huis is te vinden op {home}
+        </p> */}
+
     </section>
       
 
