@@ -4,6 +4,7 @@ import FilterHuis from './FilterHuis/FilterHuis';
 import FilterPrijs from './FilterHuis/FilterPrijs';
 import FilterParkeerplaats from './FilterHuis/FilterParkeerplaats';
 import jsonData from '../assets/wonen-in-de-kuil.json';
+import '../styles/FilterHuis.css';
 
 const HomePage = () => {
     const { plots } = jsonData;
@@ -57,24 +58,80 @@ const HomePage = () => {
         return statusFilter && prijsFilter && parkeerplaatsFilter;
     });
 
+    const appartementen = filterHuizenLijst.filter((huis) =>
+    ['Appartement', 'Dijkappartement', 'Parkappartement'].includes(huis.type)
+  );
+
+  const maisonnettes = filterHuizenLijst.filter((huis) =>
+    ['Dijkmaisonnette', 'Maisonnette'].includes(huis.type)
+  );
+
+  const specifiekeWoningen = filterHuizenLijst.filter((huis) =>
+    ['Drive-in woning', 'Stadswoning', 'Terraswoning', 'Valleiwoning'].includes(
+      huis.type
+    )
+  );
+
     return (
         <main>
             <FilterHuis filterHuis={opFilterHuis}></FilterHuis>
             <FilterPrijs filterPrijs={opFilterPrijs}></FilterPrijs>
-            <FilterParkeerplaats
-                filterParkeerplaats={opFilterParkeerplaats}
-            ></FilterParkeerplaats>
-            {filterHuizenLijst.map((huis) => (
-                <HomeCard
-                    key={huis.id}
-                    home={huis.number}
-                    price={huis.price}
-                    type={huis.type}
-                    parking={huis.parking_count}
-                    m2={huis.living_surface}
-                    room_count={huis.room_count}
-                    status={huis.status}
-                />
+            <FilterParkeerplaats filterParkeerplaats={opFilterParkeerplaats}></FilterParkeerplaats>
+
+            <button className="button-type" onClick={() => opFilterHuis('appartementen')}>Appartementen</button>
+            <button className="button-type" onClick={() => opFilterHuis('maisonnettes')}>Maisonnettes</button>
+            <button className="button-type" onClick={() => opFilterHuis('specifieke-woningen')}>Specifieke Woningen</button>
+
+            {filterTextValue === 'appartementen' && appartementen.map((huis) => (
+            <HomeCard
+            key={huis.id}
+            home={huis.number}
+            price={huis.price}
+            type={huis.type}
+            parking={huis.parking_count}
+            m2={huis.living_surface}
+            room_count={huis.room_count}
+            status={huis.status}
+            />
+            ))}
+            
+            {filterTextValue === 'maisonnettes' && maisonnettes.map((huis) => (
+            <HomeCard
+            key={huis.id}
+            home={huis.number}
+            price={huis.price}
+            type={huis.type}
+            parking={huis.parking_count}
+            m2={huis.living_surface}
+            room_count={huis.room_count}
+            status={huis.status}
+            />
+            ))}
+            
+            {filterTextValue === 'specifieke-woningen' && specifiekeWoningen.map((huis) => (
+            <HomeCard
+            key={huis.id}
+            home={huis.number}
+            price={huis.price}
+            type={huis.type}
+            parking={huis.parking_count}
+            m2={huis.living_surface}
+            room_count={huis.room_count}
+            status={huis.status}
+            />
+            ))}
+            
+            {filterTextValue === 'all' && filterHuizenLijst.map((huis) => (
+            <HomeCard
+            key={huis.id}
+            home={huis.number}
+            price={huis.price}
+            type={huis.type}
+            parking={huis.parking_count}
+            m2={huis.living_surface}
+            room_count={huis.room_count}
+            status={huis.status}
+            />
             ))}
         </main>
     );

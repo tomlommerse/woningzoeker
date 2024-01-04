@@ -2,8 +2,10 @@
     --color-primary: #08192F;
     --color-secondary: #007bff;
     --color-tertiary: #706EBC;
+    --color-tertiary-dark: #55529e;
     --color-white: #EDF2EF;
     --color-black: #000000;
+    --color-orange: #000000;
 }
 
 *{
