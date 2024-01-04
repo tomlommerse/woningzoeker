@@ -35,16 +35,16 @@ const HomePage = () => {
                 : true;
 
         const prijsFilter =
-            filterPrijsValue === '0-100000'
-                ? huis.price >= 0 && huis.price <= 100000
-                : filterPrijsValue === '100000-200000'
-                ? huis.price > 100000 && huis.price <= 200000
-                : filterPrijsValue === '200000-300000'
-                ? huis.price > 200000 && huis.price <= 300000
+            filterPrijsValue === '0-300000'
+                ? huis.price >= 0 && huis.price <= 300000
                 : filterPrijsValue === '300000-400000'
                 ? huis.price > 300000 && huis.price <= 400000
-                : filterPrijsValue === '500000+'
-                ? huis.price > 500000
+                : filterPrijsValue === '400000-500000'
+                ? huis.price > 400000 && huis.price <= 500000
+                : filterPrijsValue === '500000-600000'
+                ? huis.price > 500000 && huis.price <= 600000
+                : filterPrijsValue === '600000+'
+                ? huis.price > 600000
                 : true;
 
         const parkeerplaatsFilter =
