@@ -5,6 +5,7 @@ import TopBar from './components/topbar/TopBar';
 import NavBar from './components/navbar/NavBar';
 import DetailPage from './components/detailpage';
 import MapPage from './components/MapPage';
+import StartPage from './views/StartPage';
 
 function App() {
   return (
