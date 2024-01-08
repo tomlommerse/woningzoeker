@@ -5,12 +5,14 @@ import TopBar from './components/topbar/TopBar';
 import NavBar from './components/navbar/NavBar';
 import DetailPage from './components/detailpage';
 import MapPage from './components/MapPage';
+import StartPage from './views/StartPage';
 
 function App() {
   return (
     <div className="App">
       <TopBar />
       <Routes>
+        <Route path='' element={<StartPage />}/>
         <Route path="/home" element={<HomePage />} />
         <Route path="/detailpage" element={<DetailPage />} />
         <Route path="/kaart" element={<MapPage />} />

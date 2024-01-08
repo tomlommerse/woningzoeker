@@ -1,0 +1,33 @@
+#startpic{
+    width: 100%;
+    
+}
+
+.searchbox{
+    background-color: var(--color-primary);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.zoekButton{
+    width: 209px;
+    height: 45px;
+    border-radius: 999px;
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.homeText{
+    text-align: left;
+    padding: 20px;
+    color: var(--color-black);
+    font-size: 18px;
+    font-weight: 600;
+}
