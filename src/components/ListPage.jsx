@@ -1,56 +1,55 @@
 // src/components/HomePage.js
 import React, { useState, useEffect } from 'react';
 import HomeCard from './cards/HomeCard';
-import jsonData from '../assets/wonen-in-de-kuil.json'; // Import your JSON file
+import ListPageMainFilter from './Woningpagina/filter/ListPageMainFilter';
+import jsonData from '../assets/wonen-in-de-kuil.json';
+import './Woningpagina/filter/filterbutton.css';
 
-const HomePage = () => {
-    const [uniquePlots, setUniquePlots] = useState([]);
-    const [selectedType, setSelectedType] = useState(null);
+const ListPage = () => {
+    const { plots } = jsonData;
 
+    const [activeFilter, setActiveFilter] = useState(null);
+    const [filterOptions, setFilterOptions] = useState([]);
 
-    const allTypes = [...new Set(uniquePlots.map((plot) => plot.type))];
-
+    // Extract unique plot types from the JSON data
     useEffect(() => {
-        // verwijder duplicates
-        const filteredPlots = jsonData.plots.filter(
-        (plot, index, self) =>
-            index === self.findIndex((p) => p.id === plot.id)
-        );
+        const types = Array.from(new Set(plots.map((plot) => plot.type)));
+        setFilterOptions(['Alle Woningen', ...types]);
+    }, [plots]);
 
-        setUniquePlots(filteredPlots);
-    }, []);
-
-    const handleTypeButtonClick = (type) => {
-        setSelectedType(type);
+    const handleFilterClick = (type) => {
+        setActiveFilter(type);
     };
 
-    const filteredPlots = selectedType
-        ? uniquePlots.filter((plot) => plot.type === selectedType)
-        : uniquePlots;
+    const filteredPlots = activeFilter
+        ? plots.filter((plot) => plot.type === activeFilter)
+        : plots;
 
     return (
         <main>
-        <div>
-            <button onClick={() => handleTypeButtonClick(null)}>All</button>
-            {allTypes.map((type) => (
-            <button key={type} onClick={() => handleTypeButtonClick(type)}>
-                {type}
-            </button>
+            <div className="filter-buttons">
+                {filterOptions.map((filterType) => (
+                    <ListPageMainFilter
+                        key={filterType}
+                        type={filterType}
+                        isActive={activeFilter === filterType}
+                        onClick={() => handleFilterClick(filterType)}
+                    />
+                ))}
+            </div>
+            {filteredPlots.map((plot) => (
+                <HomeCard
+                    key={plot.id}
+                    home={plot.number}
+                    price={plot.price}
+                    type={plot.type}
+                    parking={plot.parking_count}
+                    m2={plot.living_surface}
+                    room_count={plot.room_count}
+                />
             ))}
-        </div>
-        {filteredPlots.map((plot) => (
-            <HomeCard
-            key={plot.id}
-            home={plot.number}
-            price={plot.price}
-            type={plot.type}
-            parking={plot.parking_count}
-            m2={plot.living_surface}
-            room_count={plot.room_count}
-            />
-        ))}
         </main>
     );
 };
 
-export default HomePage;
+export default ListPage;
