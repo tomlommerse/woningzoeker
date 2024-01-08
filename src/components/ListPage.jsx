@@ -6,6 +6,7 @@ import FilterHuis from './FilterHuis/FilterHuis';
 import FilterPrijs from './FilterHuis/FilterPrijs';
 import FilterParkeerplaats from './FilterHuis/FilterParkeerplaats';
 import '../styles/FilterHuis.css';
+import Filteroverlay from './Filteroverlay';
 
 const ListPage = () => {
     const { plots } = jsonData;
@@ -83,6 +84,8 @@ const ListPage = () => {
             <button className="button-type" onClick={() => opFilterHuis('maisonnettes')}>Maisonnettes</button>
             <button className="button-type" onClick={() => opFilterHuis('specifieke-woningen')}>Specifieke Woningen</button>
 
+            <Filteroverlay></Filteroverlay>
+
             {filterTextValue === 'appartementen' && appartementen.map((huis) => (
             <HomeCard
             key={huis.id}
@@ -134,6 +137,9 @@ const ListPage = () => {
             status={huis.status}
             />
             ))}
+
+
+
         </div>
     );
 };
