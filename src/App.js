@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/:plottype" element={<DetailPage />} />
+        <Route path="/:home" element={<DetailPage />} />
         <Route path="/kaart" element={<MapPage />} />
       </Routes>
       <NavBar />
