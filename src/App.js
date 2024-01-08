@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './components/HomePage';
+import ListPage from './components/ListPage';
 import TopBar from './components/topbar/TopBar';
 import NavBar from './components/navbar/NavBar';
 import DetailPage from './components/detailpage';
@@ -19,7 +19,7 @@ function App() {
       <TopBar />
       <Routes>
         <Route path='' element={  <StartPage />}/>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<ListPage />} />
         <Route path="/:home" element={<DetailPage />} />
         <Route path="/kaart" element={<MapPage />} />
         <Route path="/3D" element={<PerspectivePage />} />
