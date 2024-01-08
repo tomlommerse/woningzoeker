@@ -3,7 +3,25 @@ import '../styles/start.css';
 import Search from '../components/homesearch/SearchBar'
 import pic from '../assets/startpic.jpg';
 
-const options = [
+const minPrice = [
+    {key: 1, value: "0" },
+    {key: 2, value: "200.000" },
+    {key: 3, value: "300.000" },
+    {key: 4, value: "400.000" },
+    {key: 5, value: "500.000" },
+    {key: 6, value: "600.000" }
+];
+
+const maxPrice = [
+    {key: 1, value: "Geen maximum" },
+    {key: 2, value: "200.000" },
+    {key: 3, value: "300.000" },
+    {key: 4, value: "400.000" },
+    {key: 5, value: "500.000" },
+    {key: 6, value: "600.000+" }
+];
+
+const space = [
     {key: 1, value: "Test 1" },
     {key: 2, value: "Test 2" },
     {key: 3, value: "Test 3" },
@@ -20,7 +38,7 @@ function StartPage() {
         <img id='startpic' src={pic} alt='house' />
         <section className='searchbox'>
             <Search
-                options={options}
+                options={minPrice}
                 onChange={(item) => setSelectedOption(item)}
                 selectedKey={selectedOption}
                 placeholder={"Van        €0"}
@@ -28,7 +46,7 @@ function StartPage() {
                 setOpen={setOpen}
             />
             <Search
-                options={options}
+                options={maxPrice}
                 onChange={(item) => setSelectedOption(item)}
                 selectedKey={selectedOption}
                 placeholder={"Tot        Geen maximum"}
@@ -36,7 +54,7 @@ function StartPage() {
                 setOpen={setOpen}
             />
             <Search
-                options={options}
+                options={space}
                 onChange={(item) => setSelectedOption(item)}
                 selectedKey={selectedOption}
                 placeholder={"Opp      Geen grootte"}
