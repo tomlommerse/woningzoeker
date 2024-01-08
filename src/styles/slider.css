@@ -2,13 +2,18 @@
     box-sizing: border-box;
 }
 
+/* foto's in slider */
 .img-silder-img{
     object-fit: cover;
     width: 100%;
     height: 100%;
     display: block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: translate 300ms ease-in-out;
 }
 
+/* knoppen in slider */
 .img-slider-btn{
     all: unset;
     display: block;
@@ -20,13 +25,27 @@
     transition: background-color 100ms ea;
 }
 
+/* hover voor knoppen */
 .img-slider-btn:hover{
     background-color: rgb(0, 0, 0, .2);
 }
 
+/* knijp animatie over pijl */
+.img-slider-btn:hover > *{
+    animation: knijp 200ms ease-in-out;
+}
+
+/* pijlen in knoppen */
 .img-slider-btn > * {
     stroke: white;
     fill: black;
     width: 2rem;
     height: 100%;
+}
+
+/* knijp animatie over pijl */
+@keyframes knijp {
+    50%{
+        scale: 1.4 0.6;
+    }
 }
