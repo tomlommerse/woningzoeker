@@ -2,30 +2,34 @@
     height: 7vh;
     display: flex;
     overflow-x: scroll;
-    background-color: #08192F; /* Achtergrondkleur van de slider */
-  }
+    background-color: var(--color-primary);
+    border-radius: 0px;
+    margin-top: -1px;
+}
   
   .filter-button {
     height: 5vh;
     padding: 5px 30px;
     border-radius: 60px;
-    background-color: #08192F; /* Achtergrondkleur van de button */
+    background-color: var(--color-primary); 
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    border: 2px solid white; /* Witte omlijning */
-    font-weight: bold; /* Dikgedrukte tekst */
+    color: var(--color-white);
+    border: 2px solid var(--color-white); 
+    font-weight: bold; 
     margin-top: 10px;
-    margin-right: 10px; /* Marge tussen de knoppen */
+    margin-right: 10px; 
+    white-space: nowrap;
   }
   
   .filter-button.active {
-    background-color: white;
-    color: #08192F; /* Omgekeerde kleuren voor de actieve knop */
+    background-color: var(--color-orange);
+    color: var(--color-white); 
+    border: var(--color-orange);
   }
-  
+
   .filter-slider {
-    margin-right: 10px; /* Extra marge aan de rechterkant van de slider */
+    margin-right: 10px; 
   }
