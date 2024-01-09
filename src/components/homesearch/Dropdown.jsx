@@ -1,9 +1,10 @@
 import React from 'react';
 
+
 function Dropdown({ options }) {
     return (
         <div>
-        <select>
+        <select className='dropdown_box'>
             {options.map((option, index) => (
             <option key={index} value={option}>
                 {option}

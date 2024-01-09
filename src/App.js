@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <TopBar />
       <Routes>
+        <Route path='/' element={  <StartPage />}/>
         <Route path='/home' element={  <StartPage />}/>
         <Route path="/zoek" element={<ListPage />} />
         <Route path="/:key" element={<DetailPage />} />
