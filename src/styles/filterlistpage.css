@@ -1,4 +1,5 @@
 .filter-buttons {
+    height: 7vh;
     display: flex;
     overflow-x: scroll;
     background-color: #08192F; /* Achtergrondkleur van de slider */
@@ -16,6 +17,7 @@
     color: white;
     border: 2px solid white; /* Witte omlijning */
     font-weight: bold; /* Dikgedrukte tekst */
+    margin-top: 10px;
     margin-right: 10px; /* Marge tussen de knoppen */
   }
   
