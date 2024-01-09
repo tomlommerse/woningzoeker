@@ -1,0 +1,29 @@
+.filter-buttons {
+    display: flex;
+    overflow-x: scroll;
+    background-color: #08192F; /* Achtergrondkleur van de slider */
+  }
+  
+  .filter-button {
+    height: 5vh;
+    padding: 5px 30px;
+    border-radius: 60px;
+    background-color: #08192F; /* Achtergrondkleur van de button */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid white; /* Witte omlijning */
+    font-weight: bold; /* Dikgedrukte tekst */
+    margin-right: 10px; /* Marge tussen de knoppen */
+  }
+  
+  .filter-button.active {
+    background-color: white;
+    color: #08192F; /* Omgekeerde kleuren voor de actieve knop */
+  }
+  
+  .filter-slider {
+    margin-right: 10px; /* Extra marge aan de rechterkant van de slider */
+  }
