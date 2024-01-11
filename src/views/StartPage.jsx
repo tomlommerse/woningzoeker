@@ -13,14 +13,14 @@ function StartPage() {
         <img id='startpic' src={pic} alt='house' />
         <section className='searchbox'>
 
-        <h2>woningtype</h2>
-        <Dropdown options={type} />
+        
+        <Dropdown className="pageDrop" options={type} placeholder='Selecteer woningtype'/>
 
-        <h2>min prijs</h2>
-        <Dropdown options={min} />
+        
+        <Dropdown className="pageDrop" options={min} placeholder='Selecteer Minimum prijs'/>
 
-        <h2>max prijs</h2>
-        <Dropdown options={max} />
+        
+        <Dropdown className="pageDrop" options={max} placeholder='Selecteer Maximum prijs'/>
 
             <button className='zoekButton'>Zoek</button>
             
