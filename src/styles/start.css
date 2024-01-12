@@ -1,6 +1,6 @@
 #startpic{
     width: 100%;
-    
+    transform: translateY(-5%);
 }
 
 .searchbox{
@@ -12,6 +12,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px; 
+    transform: translateY(-10%);
 }
 
 .zoekButton{
@@ -22,6 +23,7 @@
     color: var(--color-white);
     font-size: 23px;
     font-weight: 600;
+    border-color: var(--color-tertiary);
 }
 
 .homeText{
@@ -40,6 +42,19 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    
+    border-width: 1px;
+    padding-left: 10px;
+    color: #999;
+}
+
+.pageDrop::placeholder{
+    color: aquamarine;
+}
+.dropdown_options:first-child:checked{
+    color: aquamarine;
+}
+
+.dropdown_options{
+    color: black;
 }
 
