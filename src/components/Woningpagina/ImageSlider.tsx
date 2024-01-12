@@ -25,15 +25,34 @@ function ImageSlider({imageUrls}:ImageSliderProps){
         })
         
     }
-    return <div style={{width: "100%", height: "300px", position: "relative"}}>
-        <img src={imageUrls[imageIndex]} className="img-silder-img" alt="img"/>
-        <button onClick={showPrevImage} className="img-slider-btn" style={{left: 0}}>
-            <ArrowBigLeft/>
-        </button>
-        <button onClick={showNextImage} className="img-slider-btn" style={{right: 0}}>
-            <ArrowBigRight/>
-        </button>
-    </div>
-}
-
-export default ImageSlider
+    return (
+        <div style={{width: "100%", height: "270px", position: "relative"}}>
+            <div 
+            style={{
+                width: "100%", 
+                height: "270px", 
+                display: "flex", 
+                overflow: "hidden",
+            }}
+            >
+               {imageUrls.map(url => (
+                <img 
+                key={url} 
+                src={url} 
+                className="img-silder-img" 
+                style={{translate: `${-100 * imageIndex}%`}}
+                />
+                ))}
+            </div>
+            
+                <button onClick={showPrevImage} className="img-slider-btn" style={{left: 0}}>
+                    <ArrowBigLeft/>
+                </button>
+                <button onClick={showNextImage} className="img-slider-btn" style={{right: 0}}>
+                    <ArrowBigRight/>
+                </button>
+        </div>
+        )
+    }
+    
+    export default ImageSlider
