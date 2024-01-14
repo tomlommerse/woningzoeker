@@ -20,7 +20,10 @@ const FilterOverlay = ({ onFilterChange }) => {
 
   return (
     <div>
-      <button className="open-overlay-button" onClick={toggleOverlay}>
+      <button
+      className="open-overlay-button"
+      onClick={toggleOverlay}
+      style={{ display: isOverlayVisible ? 'none' : 'block' }}>
         Open Filter
       </button>
 
