@@ -25,6 +25,11 @@ const ListPage = () => {
         ? plots.filter((plot) => plot.type === activeFilter)
         : plots;
 
+    // print de localstorage als je op de pagina komt
+    useEffect(() => {
+        console.log('LocalStorage:', localStorage);
+    }, []);
+
     return (
         <main>
             <div className="filter-buttons">

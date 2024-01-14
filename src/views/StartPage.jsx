@@ -1,4 +1,4 @@
-// StartPage.jsx
+//views/StartPage.jsx
 import React, { useState } from 'react';
 import '../styles/start.css';
 import Dropdown from '../components/homesearch/Dropdown';
@@ -15,6 +15,8 @@ function StartPage() {
         localStorage.setItem('maxPrice', maxPrice);
 
         console.log('LocalStorage:', localStorage);
+
+        window.location.href = '/Zoek';
     };
 
     return (
