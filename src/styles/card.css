@@ -58,4 +58,9 @@
     margin: 0;
     position: fixed;
     bottom: 10vh;
+    transition: 0.2s;
+}
+
+.hide{
+    transform: translateY(150%);
 }

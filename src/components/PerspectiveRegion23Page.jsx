@@ -15,7 +15,9 @@ function PerspectiveRegion23Page() {
   const [currentPlot, setCurrentPlot] = useState(plots[0]);
 
   function changeCurrentPlot(spot) {
+    let popup = document.getElementById("js-popup");
     setCurrentPlot(plots.find((p) => p.id === spot.entity_id));
+    popup.classList.remove("hide");
   }
   return (
     <section className='perspectiveSection'>
@@ -26,7 +28,7 @@ function PerspectiveRegion23Page() {
         ))}
       </svg>
       {currentPlot && (
-        <div className='homeCard plotPopup'>
+        <div id="js-popup" className='homeCard plotPopup hide'>
           <div className="imgArea">
             <img id='img' src={Test} alt='house' />
             <p id='adres'>{currentPlot.number}</p>
