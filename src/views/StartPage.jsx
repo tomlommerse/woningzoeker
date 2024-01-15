@@ -34,12 +34,13 @@ function StartPage() {
                 </button>
             </section>
             <section className='homeText'>
+                <h1>De groene vallei op Zuid</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                    in culpa qui officia deserunt mollit anim id est laborum.
+                De Kuil bestaat uit 232 woningen, van fijne appartementen tot flexibele eengezinswoningen, 
+                die tussen de Brede Hilledijk, Paul Krugerstraat en de Jacominastraat worden gebouwd. Met een groene oase in het midden, 
+                waar je je buren kunt ontmoeten, kunt ontspannen of heerlijk kunt spelen. 
+                Met alle voorzieningen dichtbij én binnen 10 minuten in de bruisende binnenstad van Rotterdam. Ideaal wonen toch?
+                De bouw van alle fases in volle gang!
                 </p>
             </section>
         </main>
