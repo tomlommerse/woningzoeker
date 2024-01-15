@@ -1,4 +1,4 @@
-// StartPage.jsx
+//views/StartPage.jsx
 import React, { useState } from 'react';
 import '../styles/start.css';
 import Dropdown from '../components/homesearch/Dropdown';
@@ -6,23 +6,30 @@ import pic from '../assets/startpic.jpg';
 
 function StartPage() {
     const [selectedType, setSelectedType] = useState('');
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
 
-    const handleSearch = () => {
-        console.log('Selected Type:', selectedType);
-        // Add your logic here for handling the selected type
+    const search = () => {
+        localStorage.setItem('selectedType', selectedType);
+        localStorage.setItem('minPrice', minPrice);
+        localStorage.setItem('maxPrice', maxPrice);
+
+        console.log('LocalStorage:', localStorage);
+
+        window.location.href = '/Zoek';
     };
 
     return (
         <main>
             <img id='startpic' src={pic} alt='house' />
             <section className='searchbox'>
-            <h2>type huis</h2>
+                <h2>type huis</h2>
                 <Dropdown dataKey="type" onChange={(value) => setSelectedType(value)} />
                 <h2>Minimumprijs</h2>
-                <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setSelectedType(value)} />
+                <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
                 <h2>Maxmumprijs</h2>
-                <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setSelectedType(value)} />
-                <button className='zoekButton' onClick={handleSearch}>
+                <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+                <button className='zoekButton' onClick={search}>
                     Zoek
                 </button>
             </section>

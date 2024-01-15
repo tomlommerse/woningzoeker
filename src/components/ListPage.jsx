@@ -46,6 +46,11 @@ const ListPage = () => {
         
     const filteredPlotsByRoom = filteredPlots.filter(applyRoomFilter);
 
+    // print de localstorage als je op de pagina komt
+    useEffect(() => {
+        console.log('LocalStorage:', localStorage);
+    }, []);
+
     return (
         <main>
             <div className="filter-buttons">
