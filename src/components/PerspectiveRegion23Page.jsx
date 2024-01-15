@@ -13,7 +13,7 @@ function PerspectiveRegion23Page() {
   const [currentPlot, setCurrentPlot] = useState(plots[0]);
   const [popup, setPopup] = useState(null);
 
-  var movementTotal = 0;
+  var popupMovement = 0;
 
   useEffect(() => {
     const popupElement = document.getElementById('js-popup');
@@ -29,22 +29,22 @@ function PerspectiveRegion23Page() {
 
   function onDrag({ movementY }) {
     if (popup) {
-      movementTotal = movementTotal + movementY;
-      popup.style.transform = `translateX(-50%) translateY(${movementTotal}px)`;
+      popupMovement = popupMovement + movementY;
+      popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
     }
   }
 
   function onDragStop() {
     if (popup) {
       let adres = document.getElementById('adres');
-      if (movementTotal > 50) {
+      if (popupMovement > 50) {
         popup.style.transform = `translateX(-50%) translateY(150%)`;
-        movementTotal = 0;
-      } else if (movementTotal < -100) {
+        popupMovement = 0;
+      } else if (popupMovement < -100) {
         window.location.href = `/${adres.innerHTML}`;
       } else {
-        movementTotal = 0;
-        popup.style.transform = `translateX(-50%) translateY(${movementTotal}px)`;
+        popupMovement = 0;
+        popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
       }
     }
   }

@@ -1,7 +1,8 @@
 .perspectiveSection{
-    padding-top: 10vh;
+    padding-top: 50vh;
     overflow: hidden;
     width: 100vw;
+    transform: translateY(-20%);
 }
 
 .perspectiveSection svg{
@@ -9,6 +10,10 @@
     margin-left: 50%;
     display: block;
     transform: translateX(-50%);
+}
+
+.svgTranslateY{
+    transform: translateY(-10%);
 }
 
 .svgTranslateY svg{
