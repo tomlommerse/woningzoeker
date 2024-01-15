@@ -1,4 +1,4 @@
-// src/components/HomePage.js
+// src/components/ListPage.js
 import React, { useState, useEffect } from 'react';
 import HomeCard from './cards/HomeCard';
 import ListPageMainFilter from './Woningpagina/filter/ListPageMainFilter';
@@ -9,6 +9,9 @@ const ListPage = () => {
     const { plots } = jsonData;
 
     const [activeFilter, setActiveFilter] = useState(null);
+    const [minPrice, setMinPrice] = useState(null);
+    const [maxPrice, setMaxPrice] = useState(null);
+    const [parkingCount, setParkingCount] = useState(null);
     const [filterOptions, setFilterOptions] = useState([]);
 
     // Extract unique plot types from the JSON data
@@ -17,18 +20,35 @@ const ListPage = () => {
         setFilterOptions(['Alle Woningen', ...types]);
     }, [plots]);
 
+    useEffect(() => {
+        // Get the filters from the localstorage (add this when adding a filter )
+        const storedType = localStorage.getItem('selectedType');
+        const storedMinPrice = localStorage.getItem('minPrice');
+        const storedMaxPrice = localStorage.getItem('maxPrice');
+        const storedParkingCount = localStorage.getItem('parking_count');
+
+        setActiveFilter(storedType);
+        setMinPrice(storedMinPrice);
+        setMaxPrice(storedMaxPrice);
+        setParkingCount(storedParkingCount);
+    }, []);
+
     const handleFilterClick = (type) => {
         setActiveFilter(type);
     };
 
-    const filteredPlots = activeFilter
-        ? plots.filter((plot) => plot.type === activeFilter)
-        : plots;
 
-    // print de localstorage als je op de pagina komt
-    useEffect(() => {
-        console.log('LocalStorage:', localStorage);
-    }, []);
+    //add the logic for how to filter here
+    const filteredPlots = plots.filter((plot) => {
+        const typeCondition = !activeFilter || plot.type === activeFilter;
+        const priceCondition =
+            (!minPrice || plot.price >= parseFloat(minPrice)) &&
+            (!maxPrice || plot.price <= parseFloat(maxPrice));
+        const parkingCondition =
+            (!parkingCount || plot.parking_count === parseInt(parkingCount));
+
+        return typeCondition && priceCondition && parkingCondition;
+    });
 
     return (
         <main>

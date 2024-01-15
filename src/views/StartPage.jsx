@@ -8,11 +8,13 @@ function StartPage() {
     const [selectedType, setSelectedType] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
+    const [parking_count, setParking_count] = useState('');
 
     const search = () => {
         localStorage.setItem('selectedType', selectedType);
         localStorage.setItem('minPrice', minPrice);
         localStorage.setItem('maxPrice', maxPrice);
+        localStorage.setItem('parking_count', parking_count);
 
         console.log('LocalStorage:', localStorage);
 
@@ -25,6 +27,8 @@ function StartPage() {
             <section className='searchbox'>
                 <h2>type huis</h2>
                 <Dropdown dataKey="type" onChange={(value) => setSelectedType(value)} />
+                <h2>aantal parkeerplaatsen</h2>
+                <Dropdown dataKey="parking_count" onChange={(value) => setParking_count(value)} />
                 <h2>Minimumprijs</h2>
                 <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
                 <h2>Maxmumprijs</h2>
