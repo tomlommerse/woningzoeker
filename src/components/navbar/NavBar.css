@@ -13,19 +13,18 @@ nav {
 
 .navButton{
     color: var(--color-white);
-    display: grid;
-    grid-template-areas: 
-    "icon"
-    "text";
-    /* width: 100%; */
+    display: flex; /* Gebruik flexbox voor de container */
+    flex-direction: column; /* Stapel de elementen verticaal */
+    align-items: center;
 }
 
 .navButton > img{
-    grid-area: icon;
+    width: 50px; /* Stel de gewenste breedte in voor de afbeeldingen */
+    height: 50px
 }
 
 .navButton > span{
-    grid-area: text;
+    margin-top: 5px;
 }
 
 .navSvg {
