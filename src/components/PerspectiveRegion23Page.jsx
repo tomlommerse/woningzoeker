@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/3d.css';
-import { Link } from 'react-router-dom';
 import '../styles/card.css';
 import Test from '../assets/Test_2.jpg';
 import Tags from './cards/tags';
@@ -41,7 +40,7 @@ function PerspectiveRegion23Page() {
       if (movementTotal > 50) {
         popup.style.transform = `translateX(-50%) translateY(150%)`;
         movementTotal = 0;
-      } else if (movementTotal <-100) {
+      } else if (movementTotal < -100) {
         window.location.href = `/${adres.innerHTML}`;
       } else {
         movementTotal = 0;
