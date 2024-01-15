@@ -1,0 +1,26 @@
+{
+    "colorTabs.config": [
+        {
+            "regex": "src/components/Woningpagina/.*",
+            "color": "#08192F"
+        },
+        {
+            "regex": "src/components/topbar/.*",
+            "color": "#706EBC"            
+        },
+        {
+            "regex": "src/components/navbar/.*",
+            "color": "#FF4500"
+        },
+        {
+            "regex": "src/components/cards/.*",
+            "color": "#04B900"
+        },
+        {
+            "regex": ".*/web/.*"
+        },
+        {
+            "regex": ".*/mobile/.*"
+        }
+    ],
+}

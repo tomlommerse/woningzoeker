@@ -18,9 +18,10 @@ function App() {
     <div className="App">
       <TopBar />
       <Routes>
+        <Route path='/' element={  <StartPage />}/>
         <Route path='/home' element={  <StartPage />}/>
         <Route path="/zoek" element={<ListPage />} />
-        <Route path="/:home" element={<DetailPage />} />
+        <Route path="/:key" element={<DetailPage />} />
         <Route path="/kaart" element={<MapPage />} />
         <Route path="/3D" element={<PerspectivePage />} />
         <Route path="/3D/23" element={<PerspectiveRegion23Page />} />

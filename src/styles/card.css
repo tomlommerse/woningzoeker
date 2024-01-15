@@ -4,13 +4,13 @@
     position: relative;
     display: inline-block;
     width: 351px;
-    border-radius: 15px;
+    border-radius: 34px;
     margin: 5vw;
 }
 
 #img{
     width: 100%;
-    padding: 5%;
+    padding: 4%;
     border-radius: 34px;
 }
 
@@ -25,7 +25,7 @@
 
 #adres{
     position: absolute;
-    top: 196.5px;
+    top: 200px;
     left: 17px;
     background-color: var(--color-tertiary);
     padding: 5px 10px;
@@ -36,6 +36,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     margin-left: 17px;
+    margin-bottom: 10px;
 }
 
 .tag{

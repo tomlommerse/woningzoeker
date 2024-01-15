@@ -14,6 +14,6 @@ function FilterHuis(props) {
             </select>
         </section>
     )
-  }
+}
 
-  export default FilterHuis;
+export default FilterHuis;

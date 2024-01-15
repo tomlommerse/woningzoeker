@@ -2,7 +2,7 @@
     width: 100%;
     background-color: var(--color-white);
     padding: 2px 20px;
-    margin-top: 40px;
+    padding-top: 5vh;
 }
 
 .button-type{
@@ -19,4 +19,8 @@
 
 .button-type:hover {
     background-color: var(--color-tertiary-dark);
+  }
+
+  body{
+    padding-bottom: 10vh;
   }
