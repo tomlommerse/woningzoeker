@@ -13,19 +13,18 @@ nav {
 
 .navButton{
     color: var(--color-white);
-    display: grid;
-    grid-template-areas: 
-    "icon"
-    "text";
-    /* width: 100%; */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
 }
 
 .navButton > img{
-    grid-area: icon;
+    width: 50px; 
+    height: 50px
 }
 
 .navButton > span{
-    grid-area: text;
+    margin-top: 5px;
 }
 
 .navSvg {
