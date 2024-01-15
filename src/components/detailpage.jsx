@@ -15,6 +15,7 @@ const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 
 
 function Detailpage() {
+  console.log('bereikt')
   const { home } = useParams();
   const plot = jsonData.plots.find((p) => p.number === home);
   if (!plot) {

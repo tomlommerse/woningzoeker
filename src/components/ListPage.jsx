@@ -4,12 +4,14 @@ import HomeCard from './cards/HomeCard';
 import ListPageMainFilter from './Woningpagina/filter/ListPageMainFilter';
 import jsonData from '../assets/wonen-in-de-kuil.json';
 import './Woningpagina/filter/filterbutton.css';
+import FilterOverlay from './Filteroverlay';
 
 const ListPage = () => {
     const { plots } = jsonData;
 
     const [activeFilter, setActiveFilter] = useState(null);
     const [filterOptions, setFilterOptions] = useState([]);
+    const [roomFilter, setRoomFilter] = useState(null);
 
     // Extract unique plot types from the JSON data
     useEffect(() => {
@@ -21,9 +23,33 @@ const ListPage = () => {
         setActiveFilter(type);
     };
 
+    const handleRoomFilterChange = (selectedRoomFilter) => {
+        setRoomFilter(selectedRoomFilter);
+    };
+
     const filteredPlots = activeFilter
         ? plots.filter((plot) => plot.type === activeFilter)
         : plots;
+    
+    const applyRoomFilter = (plot) => {
+        if (!roomFilter) {
+            return true; // Geen kamerfilter geselecteerd, toon alle plots
+        }
+    
+            
+        if (roomFilter === "5+") {
+            return plot.room_count >= 5; // Toon plots met 5 of meer kamers
+        }
+    
+        return plot.room_count === parseInt(roomFilter); // Toon plots met het specifieke aantal kamers
+        };
+        
+    const filteredPlotsByRoom = filteredPlots.filter(applyRoomFilter);
+
+    // print de localstorage als je op de pagina komt
+    useEffect(() => {
+        console.log('LocalStorage:', localStorage);
+    }, []);
 
     return (
         <main>
@@ -37,7 +63,8 @@ const ListPage = () => {
                     />
                 ))}
             </div>
-            {filteredPlots.map((plot) => (
+            <FilterOverlay onFilterChange={handleRoomFilterChange} />
+            {filteredPlotsByRoom.map((plot) => (
                 <HomeCard
                     key={plot.id}
                     home={plot.number}
