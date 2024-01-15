@@ -54,13 +54,13 @@
 }
 
 .plotPopup{
-    width: 100%;
-    margin: 0;
+    margin: 0 50%;
     position: fixed;
     bottom: 10vh;
-    transition: 0.2s;
+    transition: 0.1s;
+    transform: translateX(-50%);
 }
 
 .hide{
-    transform: translateY(150%);
+    transform: translateX(-50%) translateY(150%);
 }

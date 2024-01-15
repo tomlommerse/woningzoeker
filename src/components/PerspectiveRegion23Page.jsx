@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/3d.css';
 import { Link } from 'react-router-dom';
 import '../styles/card.css';
@@ -9,16 +9,66 @@ import jsonData from '../assets/wonen-in-de-kuil.json';
 
 
 function PerspectiveRegion23Page() {
-  const { plots } = jsonData;
-  const { hotspots } = jsonData;
+  const { plots, hotspots } = jsonData;
   const plothotspots = hotspots.filter((hotspot) => hotspot.layer_id === 23);
   const [currentPlot, setCurrentPlot] = useState(plots[0]);
+  const [popup, setPopup] = useState(null);
+
+  var movementTotal = 0;
+
+  useEffect(() => {
+    const popupElement = document.getElementById('js-popup');
+    setPopup(popupElement);
+  }, []);
 
   function changeCurrentPlot(spot) {
-    let popup = document.getElementById("js-popup");
     setCurrentPlot(plots.find((p) => p.id === spot.entity_id));
-    popup.classList.remove("hide");
+    if (popup) {
+      popup.classList.remove("hide");
+    }
   }
+
+  function onDrag({ movementY }) {
+    if (popup) {
+      movementTotal = movementTotal + movementY;
+      popup.style.transform = `translateX(-50%) translateY(${movementTotal}px)`;
+    }
+  }
+
+  function onDragStop() {
+    if (popup) {
+      let adres = document.getElementById('adres');
+      if (movementTotal > 50) {
+        popup.style.transform = `translateX(-50%) translateY(150%)`;
+        movementTotal = 0;
+      } else if (movementTotal <-100) {
+        window.location.href = `/${adres.innerHTML}`;
+      } else {
+        movementTotal = 0;
+        popup.style.transform = `translateX(-50%) translateY(${movementTotal}px)`;
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (popup) {
+      popup.addEventListener("mousedown", () => {
+        popup.addEventListener("mousemove", onDrag);
+      });
+      document.addEventListener("mouseup", () => {
+        popup.removeEventListener("mousemove", onDrag);
+        onDragStop();
+      });
+      popup.addEventListener("touchstart", () => {
+        popup.addEventListener("touchmove", onDrag);
+      });
+      document.addEventListener("touchend", () => {
+        popup.removeEventListener("touchmove", onDrag);
+        onDragStop();
+      });
+    }
+  }, [popup]);
+
   return (
     <section className='perspectiveSection'>
       <svg version="1.1" width="45%" viewBox="626.3302583026234 56.3302583025943 668.3394833947532 668.3394833948114" id="svgParentElement">
@@ -30,7 +80,7 @@ function PerspectiveRegion23Page() {
       {currentPlot && (
         <div id="js-popup" className='homeCard plotPopup hide'>
           <div className="imgArea">
-            <img id='img' src={Test} alt='house' />
+            <img draggable="false" id='img' src={Test} alt='house' />
             <p id='adres'>{currentPlot.number}</p>
             <p id='price' style={{ backgroundColor: (currentPlot.status === 'verkocht' ? '#FF0000' : currentPlot.status === 'in-optie' ? '#FFA500' : '#04B900') }}>
               €{currentPlot.price}
