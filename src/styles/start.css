@@ -47,13 +47,6 @@
     color: #999;
 }
 
-.pageDrop::placeholder{
-    color: aquamarine;
-}
-.dropdown_options:first-child:checked{
-    color: aquamarine;
-}
-
 .dropdown_options{
     color: black;
 }

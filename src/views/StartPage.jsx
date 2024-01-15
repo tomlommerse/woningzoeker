@@ -23,12 +23,12 @@ function StartPage() {
         <main>
             <img id='startpic' src={pic} alt='house' />
             <section className='searchbox'>
-                <h2>type huis</h2>
-                <Dropdown dataKey="type" onChange={(value) => setSelectedType(value)} />
-                <h2>Minimumprijs</h2>
-                <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
-                <h2>Maxmumprijs</h2>
-                <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+                
+                <Dropdown className="pageDrop" placeholder='Selecteer woningtype' dataKey="type" onChange={(value) => setSelectedType(value)} />
+            
+                <Dropdown className="pageDrop" placeholder='Selecteer Minimum prijs' dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
+                
+                <Dropdown className="pageDrop" placeholder='Selecteer Maximum prijs' dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
                 <button className='zoekButton' onClick={search}>
                     Zoek
                 </button>
