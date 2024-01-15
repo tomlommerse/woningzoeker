@@ -3,7 +3,7 @@
     color: var(--color-white);
     position: relative;
     display: inline-block;
-    width: 351px;
+    max-width: 370px;
     border-radius: 34px;
     margin: 5vw;
 }
@@ -12,6 +12,7 @@
     width: 100%;
     padding: 4%;
     border-radius: 34px;
+    height: 245px;
 }
 
 #price{
@@ -25,11 +26,11 @@
 
 #adres{
     position: absolute;
-    top: 200px;
-    left: 17px;
+    top: 202.5px;
+    left: 14px;
     background-color: var(--color-tertiary);
     padding: 5px 10px;
-    border-radius: 0px 13px;
+    border-radius: 0px 18px;
 }
 
 .tagList{
