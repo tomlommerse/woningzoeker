@@ -1,0 +1,34 @@
+.info{
+    padding: 5%;
+    padding-bottom: 27vw;
+}
+
+.specs{
+    font-size: 6vw;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.prijs{
+    transform: translateY(15px);
+    font-size: 7vw;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.omschrijving{
+    padding-top: 5%;
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.kenmerken{
+    padding-top: 10%;
+    font-size: 6.5vw;
+    font-style: normal;
+    font-weight: 400;
+}

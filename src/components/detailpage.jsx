@@ -6,6 +6,7 @@ import Test3 from '../assets/Test_4.jpg';
 import Test4 from '../assets/Test_5.jpg';
 import Test5 from '../assets/Test_6.jpg';
 import { useParams } from 'react-router-dom';
+import "../styles/detail.css" 
 import ImageSlider from './Woningpagina/ImageSlider.tsx';
 import jsonData from '../assets/wonen-in-de-kuil.json';
 
@@ -30,10 +31,36 @@ function Detailpage() {
       
       </section>
     
-      <section>
-        <p>{plot.number}</p>
-        <p>{plot.price}</p>
-        <p>{plot.type}</p>
+      <section className='info'>
+        <section className='specs'>
+          <section>
+            <h1>Huis:{plot.number}</h1>
+           <h1>Opp: {plot.living_surface}m2</h1>
+           <h1>{plot.room_count} kamers</h1>
+          </section>
+           
+            <section className='prijs'>
+              <h1>€{plot.price} euro</h1>
+            </section>
+        </section>
+        
+        
+        <section className='omschrijving'>
+           <h1>Omschrijving</h1>
+           <p>Deze gezellige {plot.type} woning 
+              is nu te koop vanaf €{plot.price} euro
+              en is inclusief een garage en achtertuin.
+              De woning telt {plot.bedrooms} slaapkamers, een 
+              woonkamer en een keuken. Ook is er
+              een badkamer en een extra toilet </p>
+        </section>
+
+        <section className='kenmerken'>
+          <h1>Kenmerken</h1>
+          <p>Status: {plot.status}</p>
+          <p>Vraagprijs per m2: €{Math.round(plot.price / plot.living_surface)}</p>
+
+        </section>
     </section>
     </section>
   )
