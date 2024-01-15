@@ -24,7 +24,7 @@ const FilterOverlay = ({ onFilterChange }) => {
       className="open-overlay-button"
       onClick={toggleOverlay}
       style={{ display: isOverlayVisible ? 'none' : 'block' }}>
-        Open Filter
+        <img className="navSvg" src="./img/icon/filter.svg" alt="Filter" />
       </button>
 
       {isOverlayVisible && (
@@ -55,7 +55,7 @@ const FilterOverlay = ({ onFilterChange }) => {
         </div>
       )}
     </div>
-  );
-};
-
-export default FilterOverlay;
+    );
+  };
+  
+  export default FilterOverlay;
