@@ -51,9 +51,7 @@ function Detailpage() {
            <p>Deze gezellige {plot.type} woning 
               is nu te koop vanaf €{plot.price} euro
               en is inclusief een garage en achtertuin.
-              De woning telt {plot.bedrooms} slaapkamers, een 
-              woonkamer en een keuken. Ook is er
-              een badkamer en een extra toilet </p>
+              De woning telt {plot.living_surface} m2 aan oppervlakte waarvan {plot.plot_surface} m2 aan huisoppervlakte</p>
         </section>
 
         <section className='kenmerken'>
