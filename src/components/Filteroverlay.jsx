@@ -8,12 +8,16 @@ const FilterOverlay = ({ onClose }) => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [parkingCount, setParkingCount] = useState('');
+  const [maxPlot_surface, setMaxPlot_surface] = useState('');
+  const [minPlot_surface, setMinPlot_surface] = useState('');
 
   const search = () => {
     localStorage.setItem('selectedType', selectedType);
     localStorage.setItem('minPrice', minPrice);
     localStorage.setItem('maxPrice', maxPrice);
     localStorage.setItem('parking_count', parkingCount);
+    localStorage.setItem('maxPlot_surface', maxPlot_surface);
+    localStorage.setItem('minPlot_surface', minPlot_surface);
 
     console.log('LocalStorage:', localStorage);
 
@@ -45,6 +49,14 @@ const FilterOverlay = ({ onClose }) => {
 
       <h3>Maxmumprijs</h3>
       <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+
+      <h3>MinKaveloppervlakte</h3>
+      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="down" onChange={(value) => setMinPlot_surface(value)} />
+
+      <h3>MaxKaveloppervlakte</h3>
+      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="up" onChange={(value) => setMaxPlot_surface(value)} />
+
+      
 
       <button className="search-button" onClick={search}>
         Zoek

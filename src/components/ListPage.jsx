@@ -13,6 +13,9 @@ const ListPage = () => {
     const [minPrice, setMinPrice] = useState(null);
     const [maxPrice, setMaxPrice] = useState(null);
     const [parkingCount, setParkingCount] = useState(null);
+    const [maxPlot_surface, setMaxPlot_surface] = useState(null);
+    const [minPlot_surface, setMinPlot_surface] = useState(null);
+
     const [filterOptions, setFilterOptions] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
@@ -27,12 +30,16 @@ const ListPage = () => {
         const storedType = localStorage.getItem('selectedType');
         const storedMinPrice = localStorage.getItem('minPrice');
         const storedMaxPrice = localStorage.getItem('maxPrice');
-        const storedParkingCount = localStorage.getItem('parking_count');
+        const storedParkingCount = localStorage.getItem('parking_count')
+        const storedMaxPlot_surface = localStorage.getItem('maxPlot_surface');
+        const storedMinPlot_surface = localStorage.getItem('minPlot_surface');;
 
         setActiveFilter(storedType);
         setMinPrice(storedMinPrice);
         setMaxPrice(storedMaxPrice);
         setParkingCount(storedParkingCount);
+        setMaxPlot_surface(storedMaxPlot_surface);
+        setMinPlot_surface(storedMinPlot_surface);
     }, []);
 
     // switch between types with the filterslider and push the type to the local storage
@@ -49,8 +56,11 @@ const ListPage = () => {
             (!maxPrice || plot.price <= parseFloat(maxPrice));
         const parkingCondition =
             (!parkingCount || plot.parking_count === parseInt(parkingCount));
+        const plot_surfaceCondition =
+            (!minPlot_surface || plot.plot_surface >= parseFloat(minPlot_surface)) &&
+            (!maxPlot_surface || plot.plot_surface <= parseFloat(maxPlot_surface));
 
-        return typeCondition && priceCondition && parkingCondition;
+        return typeCondition && priceCondition && parkingCondition && plot_surfaceCondition;
     });
 
     const openOverlay = () => {
