@@ -2,11 +2,17 @@
 
 .filter_button {
     position: fixed;
-    top: 40%;
+    top: 55%;
     right: 0;
     transform: translateY(-50%);
     z-index: 100;
     width: 15vw;
+    height: 15vw;
     background-color: var(--color-tertiary);
     border-radius: 10px 0 0 10px;
+    border: none;
+}
+
+.iets {
+    width: 50px;
 }

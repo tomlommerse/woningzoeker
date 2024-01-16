@@ -76,7 +76,7 @@ const ListPage = () => {
 
             {/*overlay openen*/}
             <button className="filter_button" onClick={openOverlay}>
-                <img src="./img/icon/filter.svg"/>
+                <img className="iets" src="./img/icon/filter.svg"/>
             </button>
             {isOverlayOpen && <FilterOverlay onClose={closeOverlay} />}
 
@@ -89,6 +89,7 @@ const ListPage = () => {
                     parking={plot.parking_count}
                     m2={plot.living_surface}
                     room_count={plot.room_count}
+                    status={plot.status}
                 />
             ))}
         </main>
