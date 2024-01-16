@@ -35,8 +35,10 @@ const ListPage = () => {
         setParkingCount(storedParkingCount);
     }, []);
 
+    // switch between types with the filterslider and push the type to the local storage
     const handleFilterClick = (type) => {
         setActiveFilter(type);
+        localStorage.setItem('selectedType', type);
     };
 
     //add the logic for how to filter here
