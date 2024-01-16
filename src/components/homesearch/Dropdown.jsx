@@ -12,7 +12,7 @@
 import React from 'react';
 import jsonData from '../../assets/wonen-in-de-kuil.json';
 
-function Dropdown({ dataKey, roundBy, roundDirection, onChange }) {
+function Dropdown({ dataKey, roundBy, roundDirection, onChange, placeholder }) {
     const options = jsonData.plots.map((plot) => {
         let roundedValue;
         if (roundBy) {
@@ -41,6 +41,10 @@ function Dropdown({ dataKey, roundBy, roundDirection, onChange }) {
     return (
         <div>
             <select className='dropdown_box' onChange={handleSelectChange}>
+                <option className='dropdown_options' value='' disabled selected>
+                    {placeholder}
+                </option>
+                
                 {uniqueOptions.map((value, index) => (
                     <option key={index} value={value}>
                         {value}

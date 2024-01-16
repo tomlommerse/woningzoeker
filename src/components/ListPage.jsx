@@ -5,6 +5,7 @@ import ListPageMainFilter from './Woningpagina/filter/ListPageMainFilter';
 import jsonData from '../assets/wonen-in-de-kuil.json';
 import FilterOverlay from './Filteroverlay';
 import './Woningpagina/filter/filterbutton.css';
+import FilterOverlay from './Filteroverlay';
 
 const ListPage = () => {
     const { plots } = jsonData;

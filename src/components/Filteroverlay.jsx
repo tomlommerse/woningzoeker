@@ -21,6 +21,15 @@ const FilterOverlay = ({ onClose }) => {
     window.location.reload(); // Reload the page
   };
 
+  const handleRoomFilterChange = (event) => {
+    setRoomFilter(event.target.value);
+  };
+
+  const applyFilters = () => {
+    onFilterChange(roomFilter);
+    toggleOverlay(); // Close the overlay after applying filters
+  };
+
   return (
     <div className="filter-overlay">
       <h2>Filter Options</h2>
