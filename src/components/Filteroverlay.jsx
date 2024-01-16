@@ -51,10 +51,10 @@ const FilterOverlay = ({ onClose }) => {
       <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
 
       <h3>MinKaveloppervlakte</h3>
-      <Dropdown dataKey="plot_surface" roundBy={5} roundDirection="down" onChange={(value) => setMinPlot_surface(value)} />
+      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="down" onChange={(value) => setMinPlot_surface(value)} />
 
       <h3>MaxKaveloppervlakte</h3>
-      <Dropdown dataKey="plot_surface" roundBy={5} roundDirection="up" onChange={(value) => setMaxPlot_surface(value)} />
+      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="up" onChange={(value) => setMaxPlot_surface(value)} />
 
       
 
