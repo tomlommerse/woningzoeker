@@ -3,7 +3,7 @@ import ListPageMainFilter from './ListPageMainFilter';
 import '../../../styles/filterlistpage.css';
 
 const App = () => {
-  const types = ['Button 1', 'Button 2', 'Button 3', 'Button 4', 'Button 5', 'Button 6'];
+  const types = [];
   const [activeType, setActiveType] = React.useState(types[0]);
 
   const handleSlider = (direction) => {

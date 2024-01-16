@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import HomeCard from './cards/HomeCard';
 import ListPageMainFilter from './Woningpagina/filter/ListPageMainFilter';
 import jsonData from '../assets/wonen-in-de-kuil.json';
+import FilterOverlay from './Filteroverlay';
 import './Woningpagina/filter/filterbutton.css';
 
 const ListPage = () => {
@@ -13,6 +14,7 @@ const ListPage = () => {
     const [maxPrice, setMaxPrice] = useState(null);
     const [parkingCount, setParkingCount] = useState(null);
     const [filterOptions, setFilterOptions] = useState([]);
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     // Extract unique plot types from the JSON data
     useEffect(() => {
@@ -37,7 +39,6 @@ const ListPage = () => {
         setActiveFilter(type);
     };
 
-
     //add the logic for how to filter here
     const filteredPlots = plots.filter((plot) => {
         const typeCondition = !activeFilter || plot.type === activeFilter;
@@ -49,6 +50,14 @@ const ListPage = () => {
 
         return typeCondition && priceCondition && parkingCondition;
     });
+
+    const openOverlay = () => {
+        setIsOverlayOpen(true);
+    };
+
+    const closeOverlay = () => {
+        setIsOverlayOpen(false);
+    };
 
     return (
         <main>
@@ -62,6 +71,13 @@ const ListPage = () => {
                     />
                 ))}
             </div>
+
+            {/*overlay openen*/}
+            <button className="filter_button" onClick={openOverlay}>
+                <img src="./img/icon/filter.svg"/>
+            </button>
+            {isOverlayOpen && <FilterOverlay onClose={closeOverlay} />}
+
             {filteredPlots.map((plot) => (
                 <HomeCard
                     key={plot.id}

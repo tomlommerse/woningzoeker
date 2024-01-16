@@ -1,39 +1,49 @@
+// src/components/Woningpagina/filter/FilterOverlay.jsx
 import React, { useState } from 'react';
 import '../styles/FilterOverlay.css';
+import Dropdown from '../components/homesearch/Dropdown';
 
-const FilterOverlay = () => {
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+const FilterOverlay = ({ onClose }) => {
+  const [selectedType, setSelectedType] = useState('');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+  const [parkingCount, setParkingCount] = useState('');
 
-  const toggleOverlay = () => {
-    setIsOverlayVisible(!isOverlayVisible);
+  const search = () => {
+    localStorage.setItem('selectedType', selectedType);
+    localStorage.setItem('minPrice', minPrice);
+    localStorage.setItem('maxPrice', maxPrice);
+    localStorage.setItem('parking_count', parkingCount);
+
+    console.log('LocalStorage:', localStorage);
+
+    onClose(); // Close the overlay after search
+    window.location.reload(); // Reload the page
   };
 
   return (
-    <div>
-      <button className="open-overlay-button" onClick={toggleOverlay}>
-        Open Filter
+    <div className="filter-overlay">
+      <h2>Filter Options</h2>
+
+      <h3>Type huis</h3>
+      <Dropdown dataKey="type" onChange={(value) => setSelectedType(value)} />
+
+      <h3>Aantal parkeerplaatsen</h3>
+      <Dropdown dataKey="parking_count" onChange={(value) => setParkingCount(value)} />
+
+      <h3>Minimumprijs</h3>
+      <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
+
+      <h3>Maxmumprijs</h3>
+      <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+
+      <button className="search-button" onClick={search}>
+        Zoek
       </button>
 
-      {isOverlayVisible && (
-        <div className="filter-overlay">
-          <button className="close-overlay-button" onClick={toggleOverlay}>
-            Sluit Filter
-          </button>
-
-          {/* Voeg hier je filteropties toe */}
-          <div>
-            <label htmlFor="filterOptie1">Filter Optie 1:</label>
-            <input type="text" id="filterOptie1" />
-          </div>
-
-          <div>
-            <label htmlFor="filterOptie2">Filter Optie 2:</label>
-            <input type="text" id="filterOptie2" />
-          </div>
-
-          {/* Voeg extra filters toe indien nodig */}
-        </div>
-      )}
+      <button className="close-button" onClick={onClose}>
+        Close
+      </button>
     </div>
   );
 };
