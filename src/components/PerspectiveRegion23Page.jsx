@@ -12,13 +12,23 @@ function PerspectiveRegion23Page() {
   const plothotspots = hotspots.filter((hotspot) => hotspot.layer_id === 23);
   const [currentPlot, setCurrentPlot] = useState(plots[0]);
   const [popup, setPopup] = useState(null);
+  const [theSection, setSection] = useState(null);
+  const [svg, setSvg] = useState(null);
+  const svgStandard = (document.documentElement.clientWidth * 0.6);
 
   var popupMovement = 0;
+  var svgMovement = -svgStandard;
+
   let initialTouchY;
+  let lastTouchX;
 
   useEffect(() => {
     const popupElement = document.getElementById('js-popup');
     setPopup(popupElement);
+    const theSectionElement = document.getElementById('js-3dsection');
+    setSection(theSectionElement);
+    const svgElement = document.getElementById('js-svg');
+    setSvg(svgElement);
   }, []);
 
   function changeCurrentPlot(spot) {
@@ -63,6 +73,30 @@ function PerspectiveRegion23Page() {
         popupMovement = 0;
         popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
       }
+      initialTouchY = undefined;
+    }
+  }
+
+  function sectionDrag(event) {
+    let clientX = 0;
+    if (theSection) {
+      if (event.type === 'mousemove') {
+        clientX = event.movementX;
+        svgMovement = svgMovement + clientX;
+      } else if (event.type === 'touchmove') {
+        if (lastTouchX) {
+          clientX = event.touches[0].clientX - lastTouchX;
+        }
+        lastTouchX = event.touches[0].clientX;
+        svgMovement = svgMovement + clientX;
+      }
+      if (svgMovement > (600 + -svgStandard)) {
+        svgMovement = (600 + -svgStandard);
+      } else if (svgMovement < (-800 + -svgStandard)) {
+        svgMovement = (-800 + -svgStandard);
+      }
+      console.log(svgMovement)
+      svg.style.transform = `translateX(${(svgMovement)}px)`;
     }
   }
 
@@ -85,10 +119,29 @@ function PerspectiveRegion23Page() {
     }
   }, [popup]);
 
+  useEffect(() => {
+    if (theSection) {
+      theSection.addEventListener("mousedown", () => {
+        theSection.addEventListener("mousemove", sectionDrag);
+      });
+      document.addEventListener("mouseup", () => {
+        theSection.removeEventListener("mousemove", sectionDrag)
+        lastTouchX = undefined;
+      });
+      theSection.addEventListener("touchstart", () => {
+        theSection.addEventListener("touchmove", sectionDrag);
+      });
+      document.addEventListener("touchend", () => {
+        theSection.removeEventListener("touchmove", sectionDrag);
+        lastTouchX = undefined;
+      });
+    }
+  }, [theSection]);
+
   return (
     <section>
-      <section className='perspectiveSection'>
-        <svg version="1.1" width="45%" viewBox="626.3302583026234 56.3302583025943 668.3394833947532 668.3394833948114" id="svgParentElement">
+      <section id='js-3dsection' className='perspectiveSection'>
+        <svg id="js-svg" version="1.1" width="180%" viewBox="626.3302583026234 56.3302583025943 668.3394833947532 668.3394833948114">
           <image width="1920" height="780" href="https://backend.woningzoekerheijmans.nl/storage/211/woningzoeker_zijaanzicht_dijk.jpg"></image>
           {plothotspots.map((hotspot) => (
             <polygon key={hotspot.svg} onClick={() => changeCurrentPlot(hotspot)} points={hotspot.svg} fill={plots.find((p) => p.id === hotspot.entity_id).status === 'verkocht' ? '#FF0000' : plots.find((p) => p.id === hotspot.entity_id).status === 'in-optie' ? '#FFA500' : '#04B900'} fillOpacity="0.5" opacity="0.9" width="1" strokeOpacity="0" stroke="white" strokeWidth="3"></polygon>
