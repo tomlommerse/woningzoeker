@@ -14,6 +14,7 @@ function PerspectiveRegion23Page() {
   const [popup, setPopup] = useState(null);
 
   var popupMovement = 0;
+  let initialTouchY;
 
   useEffect(() => {
     const popupElement = document.getElementById('js-popup');
@@ -27,12 +28,28 @@ function PerspectiveRegion23Page() {
     }
   }
 
-  function onDrag({ movementY }) {
+  function onDrag(event) {
+    let clientY;
     if (popup) {
-      popupMovement = popupMovement + movementY;
+      if (event.type === 'mousemove') {
+        clientY = event.movementY;
+        popupMovement = popupMovement + clientY;
+      } else if (event.type === 'touchmove') {
+        if (initialTouchY === undefined) {
+          initialTouchY = event.touches[0].clientY;
+        }
+        if (clientY === undefined) {
+          clientY = event.touches[0].clientY - initialTouchY;
+        } else {
+          clientY = event.touches[0].clientY - initialTouchY - clientY;
+        }
+        popupMovement = clientY;
+      }
       popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
     }
   }
+
+
 
   function onDragStop() {
     if (popup) {
@@ -69,15 +86,17 @@ function PerspectiveRegion23Page() {
   }, [popup]);
 
   return (
-    <section className='perspectiveSection'>
-      <svg version="1.1" width="45%" viewBox="626.3302583026234 56.3302583025943 668.3394833947532 668.3394833948114" id="svgParentElement">
-        <image width="1920" height="780" href="https://backend.woningzoekerheijmans.nl/storage/211/woningzoeker_zijaanzicht_dijk.jpg"></image>
-        {plothotspots.map((hotspot) => (
-          <polygon key={hotspot.svg} onClick={() => changeCurrentPlot(hotspot)} points={hotspot.svg} fill={plots.find((p) => p.id === hotspot.entity_id).status === 'verkocht' ? '#FF0000' : plots.find((p) => p.id === hotspot.entity_id).status === 'in-optie' ? '#FFA500' : '#04B900'} fillOpacity="0.5" opacity="0.9" width="1" strokeOpacity="0" stroke="white" strokeWidth="3"></polygon>
-        ))}
-      </svg>
+    <section>
+      <section className='perspectiveSection'>
+        <svg version="1.1" width="45%" viewBox="626.3302583026234 56.3302583025943 668.3394833947532 668.3394833948114" id="svgParentElement">
+          <image width="1920" height="780" href="https://backend.woningzoekerheijmans.nl/storage/211/woningzoeker_zijaanzicht_dijk.jpg"></image>
+          {plothotspots.map((hotspot) => (
+            <polygon key={hotspot.svg} onClick={() => changeCurrentPlot(hotspot)} points={hotspot.svg} fill={plots.find((p) => p.id === hotspot.entity_id).status === 'verkocht' ? '#FF0000' : plots.find((p) => p.id === hotspot.entity_id).status === 'in-optie' ? '#FFA500' : '#04B900'} fillOpacity="0.5" opacity="0.9" width="1" strokeOpacity="0" stroke="white" strokeWidth="3"></polygon>
+          ))}
+        </svg>
+      </section>
       {currentPlot && (
-        <div id="js-popup" className='homeCard plotPopup hide'>
+        <div id="js-popup" className='plotPopup hide'>
           <div className="imgArea">
             <img draggable="false" id='img' src={Test} alt='house' />
             <p id='adres'>{currentPlot.number}</p>
