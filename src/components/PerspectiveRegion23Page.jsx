@@ -14,13 +14,7 @@ function PerspectiveRegion23Page() {
   const [popup, setPopup] = useState(null);
   const [theSection, setSection] = useState(null);
   const [svg, setSvg] = useState(null);
-  const svgStandard = (document.documentElement.clientWidth * 0.6);
-
-  var popupMovement = 0;
-  var svgMovement = -svgStandard;
-
-  let initialTouchY;
-  let lastTouchX;
+  const [svgStandard, setSvgStandard] = useState(null);
 
   useEffect(() => {
     const popupElement = document.getElementById('js-popup');
@@ -29,7 +23,14 @@ function PerspectiveRegion23Page() {
     setSection(theSectionElement);
     const svgElement = document.getElementById('js-svg');
     setSvg(svgElement);
+    setSvgStandard(svgElement.getBoundingClientRect().width * 0.5);
   }, []);
+
+  var popupMovement = 0;
+  var svgMovement = -svgStandard;
+
+  let initialTouchY;
+  let lastTouchX;
 
   function changeCurrentPlot(spot) {
     setCurrentPlot(plots.find((p) => p.id === spot.entity_id));
@@ -90,8 +91,8 @@ function PerspectiveRegion23Page() {
         lastTouchX = event.touches[0].clientX;
         svgMovement = svgMovement + clientX;
       }
-      if (svgMovement > (600 + -svgStandard)) {
-        svgMovement = (600 + -svgStandard);
+      if (svgMovement > (800 + -svgStandard)) {
+        svgMovement = (800 + -svgStandard);
       } else if (svgMovement < (-800 + -svgStandard)) {
         svgMovement = (-800 + -svgStandard);
       }

@@ -1,5 +1,6 @@
 .unscrollable {
     overflow: hidden;
+    max-height: 100vh;
 }
 
 .perspectiveSection {
@@ -16,5 +17,5 @@
 }
 
 .svgTranslateY svg {
-    transform: translateX(-50%) translateY(-35%);
+    transform: translateX(-50%) translateY(-36%);
 }

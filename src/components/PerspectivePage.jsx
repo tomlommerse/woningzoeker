@@ -11,18 +11,19 @@ function PerspectivePage() {
   const regions = hotspots.filter((hotspot) => hotspot.layer_id === 21);
   const [theSection, setSection] = useState(null);
   const [svg, setSvg] = useState(null);
-  const svgStandard = (document.documentElement.clientWidth * 0.6);
-
-  var svgMovement = -svgStandard;
-
-  let lastTouchX;
+  const [svgStandard, setSvgStandard] = useState(null);
 
   useEffect(() => {
     const theSectionElement = document.getElementById('js-3dsection');
     setSection(theSectionElement);
     const svgElement = document.getElementById('js-svg');
     setSvg(svgElement);
+    setSvgStandard(svgElement.getBoundingClientRect().width * 0.5);
   }, []);
+
+  var svgMovement = -svgStandard;
+
+  let lastTouchX;
 
   function sectionDrag(event) {
     let clientX = 0;
@@ -39,8 +40,8 @@ function PerspectivePage() {
       }
       if (svgMovement > (600 + -svgStandard)) {
         svgMovement = (600 + -svgStandard);
-      } else if (svgMovement < (-800 + -svgStandard)) {
-        svgMovement = (-800 + -svgStandard);
+      } else if (svgMovement < (-600 + -svgStandard)) {
+        svgMovement = (-600 + -svgStandard);
       }
       console.log(svgMovement)
       svg.style.transform = `translateX(${(svgMovement)}px)`;
