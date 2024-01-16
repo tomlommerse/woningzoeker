@@ -1,47 +1,55 @@
 .filter-overlay {
   display: block;
-  background-color: #1a237e;
-  color: white;
+  background-color: var(--color-white);
+  color: var(--color-black);
   padding: 20px;
   position: fixed;
-  top: 10%; /* Pas deze waarde aan naar wens */
+  top: 10%;
   right: 0;
   width: 100%;
-  height: 80%; /* Pas deze waarde aan naar wens */
+  height: 80%;
   z-index: 1000;
 }
-  .close-overlay-button {
-    background-color: #FF5722;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .close-overlay-button:hover {
-    background-color: #E64A19;
-  }
-  
-  .open-overlay-button {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0px; 
-    background-color: #2196F3;
-    color: white;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1001; 
+
+.search-button, .close-overlay-button{
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-.open-overlay-button:hover {
-    background-color: #1565c0;
+.search-button{
+  background-color: var(--color-tertiary);
 }
-.open-overlay-button img {
-  width: 50px; 
-  height: 50px; 
+
+.close-overlay-button {
+  background-color: var(--color-orange);
+}
+.in-overlay-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.search-button, .close-overlay-button{
+  width: 80vw;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.dubblefilter{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.dropdownTitle{
+  padding-top: 20px;
+}
+
+.subdropdownTitle{
+  padding-top: 5px;
 }

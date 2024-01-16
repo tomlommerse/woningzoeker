@@ -36,35 +36,53 @@ const FilterOverlay = ({ onClose }) => {
 
   return (
     <div className="filter-overlay">
-      <h2>Filter Options</h2>
+      <h3 className='dropdownTitle'>Woningtype</h3>
+      <Dropdown placeholder='Alle' dataKey="type" onChange={(value) => setSelectedType(value)} />
 
-      <h3>Type huis</h3>
-      <Dropdown dataKey="type" onChange={(value) => setSelectedType(value)} />
+      <h3 className='dropdownTitle'>Aantal parkeerplaatsen</h3>
+      <Dropdown placeholder='Alle' dataKey="parking_count" onChange={(value) => setParkingCount(value)} />
 
-      <h3>Aantal parkeerplaatsen</h3>
-      <Dropdown dataKey="parking_count" onChange={(value) => setParkingCount(value)} />
+      <h3 className='dropdownTitle'>Prijs</h3>
+      <div className="dubblefilter">
+        <div>
+          <h3 className='subdropdownTitle'>Minimaal</h3>
+          <Dropdown placeholder='Alle' dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
+        </div>
 
-      <h3>Minimumprijs</h3>
-      <Dropdown dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
+        <div>
+          <h3 className='subdropdownTitle'>Maximaal</h3>
+          <Dropdown placeholder='Alle' dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+        </div>
 
-      <h3>Maxmumprijs</h3>
-      <Dropdown dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
 
-      <h3>MinKaveloppervlakte</h3>
-      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="down" onChange={(value) => setMinPlot_surface(value)} />
+      </div>
 
-      <h3>MaxKaveloppervlakte</h3>
-      <Dropdown dataKey="plot_surface" roundBy={10} roundDirection="up" onChange={(value) => setMaxPlot_surface(value)} />
+
+      <h3 className='dropdownTitle'>Kaveloppervlakte</h3>
+      <div className="dubblefilter">
+        <div>
+          <h3 className='subdropdownTitle'>Minimaal</h3>
+          <Dropdown placeholder='Alle' dataKey="plot_surface" roundBy={10} roundDirection="down" onChange={(value) => setMinPlot_surface(value)} />
+        </div>
+
+        <div>
+          <h3 className='subdropdownTitle'>Maximaal</h3>
+          <Dropdown placeholder='Alle' dataKey="plot_surface" roundBy={10} roundDirection="up" onChange={(value) => setMaxPlot_surface(value)} />
+        </div>
+
+      </div>
+
 
       
-
+      <div className='in-overlay-button'>
       <button className="search-button" onClick={search}>
         Zoek
       </button>
-
-      <button className="close-button" onClick={onClose}>
-        Close
+      <button className="close-overlay-button" onClick={onClose}>
+        Sluiten
       </button>
+      </div>
+
     </div>
   );
 };

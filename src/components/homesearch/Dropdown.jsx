@@ -34,19 +34,17 @@ function Dropdown({ dataKey, roundBy, roundDirection, onChange, placeholder }) {
     uniqueOptions.sort();
 
     return (
-        <div>
-            <select className='dropdown_box' onChange={handleSelectChange}>
-                <option className='dropdown_options' value='' disabled selected>
-                    {placeholder}
+        <select className='dropdown_box' onChange={handleSelectChange}>
+            <option className='dropdown_options' value='' disabled selected>
+                {placeholder}
+            </option>
+            
+            {uniqueOptions.map((value, index) => (
+                <option key={index} value={value}>
+                    {value}
                 </option>
-                
-                {uniqueOptions.map((value, index) => (
-                    <option key={index} value={value}>
-                        {value}
-                    </option>
-                ))}
-            </select>
-        </div>
+            ))}
+        </select>
     );
 }
 
