@@ -52,3 +52,15 @@
     margin: 0px;
     font-weight: 600;
 }
+
+.plotPopup{
+    margin: 0 50%;
+    position: fixed;
+    bottom: 10vh;
+    transition: 0.1s;
+    transform: translateX(-50%);
+}
+
+.hide{
+    transform: translateX(-50%) translateY(150%);
+}
