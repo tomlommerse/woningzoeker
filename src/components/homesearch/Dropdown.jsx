@@ -1,7 +1,7 @@
 // Dropdown.jsx
-
 import React from 'react';
 import jsonData from '../../assets/wonen-in-de-kuil.json';
+import '../../styles/dropdown.css';
 
 function Dropdown({ dataKey, roundBy, roundDirection, onChange, placeholder }) {
     const options = jsonData.plots.map((plot) => {

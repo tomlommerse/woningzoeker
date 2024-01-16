@@ -1,0 +1,6 @@
+.dropdown_box{
+    border-radius: 150px;
+    border-width: 2px;
+    border-color: black;
+    background-color: var(--color-white);
+}

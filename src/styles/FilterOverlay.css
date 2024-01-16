@@ -1,6 +1,6 @@
 .filter-overlay {
   display: block;
-  background-color: #1a237e;
+  background-color: white;
   color: white;
   padding: 20px;
   position: fixed;
@@ -10,38 +10,30 @@
   height: 80%; /* Pas deze waarde aan naar wens */
   z-index: 1000;
 }
-  .close-overlay-button {
-    background-color: #FF5722;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .close-overlay-button:hover {
-    background-color: #E64A19;
-  }
-  
-  .open-overlay-button {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0px; 
-    background-color: #2196F3;
-    color: white;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1001; 
+
+.overlaytekst{
+  color: black;
+}
+.close-overlay-button {
+  height: 50px;   
+  border-radius: 60px;
+  border-width: 0px;
+  background-color: var(--color-orange);
+  text-align: center;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 10px;
+  color: white;
+}
+.buttongridoverlay{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.open-overlay-button:hover {
-    background-color: #1565c0;
+.close-overlay-button:hover {
+  background-color: #E64A19;
 }
-.open-overlay-button img {
-  width: 70px; 
-  height: 50px; 
-}
+  
