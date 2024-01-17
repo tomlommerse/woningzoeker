@@ -19,3 +19,13 @@
 .svgTranslateY svg {
     transform: translateX(-50%) translateY(-36%);
 }
+
+.terugKnop{
+    top: 9.8vh;
+    width: 100px;
+    height: 49px;
+    position: absolute;
+    background-color: var(--color-orange);
+    border-radius: 20px 0px;
+    transform: translateX(-14px);
+}
