@@ -34,6 +34,7 @@ function PerspectiveRegion23Page() {
 
   function changeCurrentPlot(spot) {
     setCurrentPlot(plots.find((p) => p.id === spot.entity_id));
+    console.log(spot)
     if (popup) {
       popup.classList.remove("hide");
     }
@@ -96,7 +97,6 @@ function PerspectiveRegion23Page() {
       } else if (svgMovement < (-800 + -svgStandard)) {
         svgMovement = (-800 + -svgStandard);
       }
-      console.log(svgMovement)
       svg.style.transform = `translateX(${(svgMovement)}px)`;
     }
   }

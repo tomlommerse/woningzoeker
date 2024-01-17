@@ -43,7 +43,6 @@ function PerspectivePage() {
       } else if (svgMovement < (-600 + -svgStandard)) {
         svgMovement = (-600 + -svgStandard);
       }
-      console.log(svgMovement)
       svg.style.transform = `translateX(${(svgMovement)}px)`;
     }
   }

@@ -96,7 +96,6 @@ function PerspectiveRegion25Page() {
       } else if (svgMovement < (-700 + -svgStandard)) {
         svgMovement = (-700 + -svgStandard);
       }
-      console.log(svgMovement)
       svg.style.transform = `translateX(${(svgMovement)}px) translateY(-36%)`;
     }
   }
