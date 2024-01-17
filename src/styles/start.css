@@ -63,3 +63,7 @@
     border: none;
 }
 
+.accessibility_button{
+    transform: translateY(125px);
+    background-color: var(--color-orange);
+}

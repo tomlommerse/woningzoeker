@@ -47,6 +47,10 @@ function StartPage() {
                 De bouw van alle fases in volle gang!
                 </p>
             </section>
+
+            <button className="filter_button accessibility_button">
+                <img className="filterbuttonimg" src="./img/icon/accessibility.svg"/>
+            </button>
         </main>
     );
 }
