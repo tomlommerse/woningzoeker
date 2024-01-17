@@ -60,5 +60,6 @@
 
 .searchboxContainer > .dropdown_box{
     width: 50vw;
+    border: none;
 }
 
