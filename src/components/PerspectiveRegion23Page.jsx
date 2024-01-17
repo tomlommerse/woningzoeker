@@ -31,12 +31,14 @@ function PerspectiveRegion23Page() {
 
   let initialTouchY;
   let lastTouchX;
+  let popupMoved;
 
   function changeCurrentPlot(spot) {
     setCurrentPlot(plots.find((p) => p.id === spot.entity_id));
     console.log(spot)
     if (popup) {
       popup.classList.remove("hide");
+      popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
     }
   }
 
@@ -64,18 +66,21 @@ function PerspectiveRegion23Page() {
 
 
   function onDragStop() {
-    if (popup) {
-      let adres = document.getElementById('adres');
-      if (popupMovement > 50) {
-        popup.style.transform = `translateX(-50%) translateY(150%)`;
-        popupMovement = 0;
-      } else if (popupMovement < -100) {
-        window.location.href = `/${adres.innerHTML}`;
-      } else {
-        popupMovement = 0;
-        popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
+    if (popupMoved) {
+      if (popup) {
+        let adres = document.getElementById('adres');
+        if (popupMovement > 50) {
+          popup.style.transform = `translateX(-50%) translateY(150%)`;
+          popup.classList.add("hide");
+          popupMovement = 0;
+        } else if (popupMovement < -100) {
+          window.location.href = `/${adres.innerHTML}`;
+        } else {
+          popupMovement = 0;
+          popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
+        }
+        initialTouchY = undefined;
       }
-      initialTouchY = undefined;
     }
   }
 
@@ -105,17 +110,21 @@ function PerspectiveRegion23Page() {
     if (popup) {
       popup.addEventListener("mousedown", () => {
         popup.addEventListener("mousemove", onDrag);
+        popupMoved = true;
       });
       document.addEventListener("mouseup", () => {
         popup.removeEventListener("mousemove", onDrag);
         onDragStop();
+        popupMoved = undefined;
       });
       popup.addEventListener("touchstart", () => {
         popup.addEventListener("touchmove", onDrag);
+        popupMoved = true;
       });
       document.addEventListener("touchend", () => {
         popup.removeEventListener("touchmove", onDrag);
         onDragStop();
+        popupMoved = undefined;
       });
     }
   }, [popup]);
