@@ -204,6 +204,11 @@ function PerspectiveRegion155Page() {
                         <polygon key={hotspot.svg} onClick={() => changeCurrentPlot(hotspot)} points={hotspot.svg} fill={plots.find((p) => p.id === hotspot.entity_id).status === 'verkocht' ? '#FF0000' : plots.find((p) => p.id === hotspot.entity_id).status === 'in-optie' ? '#FFA500' : '#04B900'} fillOpacity="0.5" opacity="0.9" width="1" strokeOpacity="0" stroke="white" strokeWidth="3"></polygon>
                     ))}
                 </svg>
+                <a href="/3D">
+                    <button className='terugKnop' style={{left: 0}}>
+                        <ArrowBigLeft/>
+                    </button>
+                </a>
             </section>
             {currentPlot && (
                 <div id="js-popup" className='plotPopup hide'>
