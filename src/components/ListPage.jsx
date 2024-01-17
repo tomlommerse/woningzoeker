@@ -19,20 +19,18 @@ const ListPage = () => {
     const [filterOptions, setFilterOptions] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
-    // Extract unique plot types from the JSON data
     useEffect(() => {
         const types = Array.from(new Set(plots.map((plot) => plot.type)));
-        setFilterOptions(['Alle Woningen', ...types]);
+        setFilterOptions(['', ...types]);
     }, [plots]);
 
     useEffect(() => {
-        // Get the filters from the localstorage (add this when adding a filter )
         const storedType = localStorage.getItem('selectedType');
         const storedMinPrice = localStorage.getItem('minPrice');
         const storedMaxPrice = localStorage.getItem('maxPrice');
-        const storedParkingCount = localStorage.getItem('parking_count')
+        const storedParkingCount = localStorage.getItem('parking_count');
         const storedMaxPlot_surface = localStorage.getItem('maxPlot_surface');
-        const storedMinPlot_surface = localStorage.getItem('minPlot_surface');;
+        const storedMinPlot_surface = localStorage.getItem('minPlot_surface');
 
         setActiveFilter(storedType);
         setMinPrice(storedMinPrice);
@@ -42,13 +40,11 @@ const ListPage = () => {
         setMinPlot_surface(storedMinPlot_surface);
     }, []);
 
-    // switch between types with the filterslider and push the type to the local storage
     const handleFilterClick = (type) => {
         setActiveFilter(type);
         localStorage.setItem('selectedType', type);
     };
 
-    //add the logic for how to filter here
     const filteredPlots = plots.filter((plot) => {
         const typeCondition = !activeFilter || plot.type === activeFilter;
         const priceCondition =
@@ -84,7 +80,6 @@ const ListPage = () => {
                 ))}
             </div>
 
-            {/*overlay openen*/}
             <button className="filter_button" onClick={openOverlay}>
                 <img className="iets" src="./img/icon/filter.svg"/>
             </button>

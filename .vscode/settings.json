@@ -23,4 +23,9 @@
             "regex": ".*/mobile/.*"
         }
     ],
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#08192F",
+        "statusBar.background": "#08192F",
+        "statusBar.foreground": "#ffffff"
+    },
 }

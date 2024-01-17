@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from './Woningpagina/button.jsx';
 import Test1 from '../assets/Test_2.jpg';
 import Test2 from '../assets/Test_3.jpg';
@@ -15,6 +15,7 @@ const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 
 
 function Detailpage() {
+
   console.log('bereikt')
   const { home } = useParams();
   const plot = jsonData.plots.find((p) => p.number === home);
