@@ -37,8 +37,8 @@
 
 /* pijlen in knoppen */
 .img-slider-btn > * {
-    stroke: white;
-    fill: black;
+    stroke: var(--color-white); ;
+    fill: var(--color-black); ;
     width: 2rem;
     height: 100%;
 }
