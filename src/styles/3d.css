@@ -1,21 +1,21 @@
-.perspectiveSection{
-    padding-top: 50vh;
+.unscrollable {
     overflow: hidden;
-    width: 100vw;
-    transform: translateY(-20%);
+    max-height: 100vh;
 }
 
-.perspectiveSection svg{
+.perspectiveSection {
+    padding-top: 10vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.perspectiveSection svg {
     overflow: visible;
     margin-left: 50%;
     display: block;
     transform: translateX(-50%);
 }
 
-.svgTranslateY{
-    transform: translateY(-10%);
-}
-
-.svgTranslateY svg{
-    transform: translateX(-50%) translateY(-35%);
+.svgTranslateY svg {
+    transform: translateX(-50%) translateY(-36%);
 }
