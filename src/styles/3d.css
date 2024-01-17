@@ -20,11 +20,22 @@
 .svgTranslateY svg {
     transform: translateX(-50%) translateY(-36%);
 }
-.svgNavbutton{
+
+.svgNavbutton {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 11vw;
     height: 8vh;
     opacity: 0.9;
+}
+
+.terugKnop {
+    top: 9.8vh;
+    width: 100px;
+    height: 49px;
+    position: absolute;
+    background-color: var(--color-orange);
+    border-radius: 20px 0px;
+    transform: translateX(-14px);
 }
