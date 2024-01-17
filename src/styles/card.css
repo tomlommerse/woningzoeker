@@ -55,11 +55,16 @@
 }
 
 .plotPopup{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: inline-block;
+    border-radius: 34px;
     margin: 0 50%;
     position: fixed;
     bottom: 10vh;
     transition: 0.1s;
     transform: translateX(-50%);
+    width: 370px;
 }
 
 .hide{

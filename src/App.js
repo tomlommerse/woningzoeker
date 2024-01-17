@@ -12,6 +12,10 @@ import PerspectiveRegion25Page from './components/PerspectiveRegion25Page';
 import PerspectiveRegion27Page from './components/PerspectiveRegion27Page';
 import PerspectiveRegion155Page from './components/PerspectiveRegion155Page';
 import PerspectiveRegion157Page from './components/PerspectiveRegion157Page';
+// import Buurt1 from './components/mapRegions/buurt1';
+import Buurt2 from './components/mapRegions/buurt2';
+// import Buurt3 from './components/mapRegions/buurt3';
+// import Buurt4 from './components/mapRegions/buurt4';
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
         <Route path="/3D/27" element={<PerspectiveRegion27Page />} />
         <Route path="/3D/155" element={<PerspectiveRegion155Page />} />
         <Route path="/3D/157" element={<PerspectiveRegion157Page />} />
+        {/* <Route path="/buurt1" element={<Buurt1 />}/> */}
+        <Route path="/buurt2" element={<Buurt2 />}/>
+        {/* <Route path="/buurt3" element={<Buurt3 />}/>
+        <Route path="/buurt4" element={<Buurt4 />}/> */}
       </Routes>
       <NavBar />
     </div>
