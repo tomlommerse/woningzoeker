@@ -23,15 +23,19 @@ function StartPage() {
         <main>
             <img id='startpic' src={pic} alt='house' />
             <section className='searchbox'>
+
+            <div className='searchboxContainer'>
+                <Dropdown className="pageDrop" placeholder='Woningtype' dataKey="type" onChange={(value) => setSelectedType(value)} />
                 
-                <Dropdown className="pageDrop" placeholder='Selecteer woningtype' dataKey="type" onChange={(value) => setSelectedType(value)} />
-            
-                <Dropdown className="pageDrop" placeholder='Selecteer Minimum prijs' dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
+                <Dropdown className="pageDrop" placeholder='Minimum Prijs' dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
                 
-                <Dropdown className="pageDrop" placeholder='Selecteer Maximum prijs' dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
+                <Dropdown className="pageDrop" placeholder='Maximum Prijs' dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
                 <button className='zoekButton' onClick={search}>
                     Zoek
                 </button>
+            </div>
+                
+
             </section>
             <section className='homeText'>
                 <h1>De groene vallei op Zuid</h1>

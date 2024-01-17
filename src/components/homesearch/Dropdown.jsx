@@ -1,14 +1,5 @@
 // Dropdown.jsx
 
-/* 
-<Dropdown
-    dataKey="" - - - - - - - - - - - - - - - - - - - - the data you want to get (mandatory)
-    roundBy={} - - - - - - - - - - - - - - - - - - - - the amount to round by   (not mandatory)
-    roundDirection=""- - - - - - - - - - - - - - - - - round up or down         (not mandatory)
-    onChange={(value) => setSelectedType(value)}
-/> 
-*/
-
 import React from 'react';
 import jsonData from '../../assets/wonen-in-de-kuil.json';
 
@@ -38,20 +29,22 @@ function Dropdown({ dataKey, roundBy, roundDirection, onChange, placeholder }) {
         onChange(selectedValue);
     };
 
+
+    // sort the array
+    uniqueOptions.sort();
+
     return (
-        <div>
-            <select className='dropdown_box' onChange={handleSelectChange}>
-                <option className='dropdown_options' value='' disabled selected>
-                    {placeholder}
+        <select className='dropdown_box' onChange={handleSelectChange}>
+            <option className='dropdown_options' value='' disabled selected>
+                {placeholder}
+            </option>
+            
+            {uniqueOptions.map((value, index) => (
+                <option key={index} value={value}>
+                    {value}
                 </option>
-                
-                {uniqueOptions.map((value, index) => (
-                    <option key={index} value={value}>
-                        {value}
-                    </option>
-                ))}
-            </select>
-        </div>
+            ))}
+        </select>
     );
 }
 
