@@ -206,10 +206,16 @@ function PerspectiveRegion155Page() {
                 </svg>
                 <a href="/3D">
                     <button className='terugKnop' style={{left: 0}}>
-                        <ArrowBigLeft/>
+                        <ArrowBigLeft className='terugKnopImage'/>
                     </button>
                 </a>
             </section>
+            <button onClick={svgLeft} className="svgNavbutton" style={{ left: 0 }}>
+                <ArrowBigLeft />
+            </button>
+            <button onClick={svgRight} className="svgNavbutton" style={{ right: 0 }}>
+                <ArrowBigRight />
+            </button>
             {currentPlot && (
                 <div id="js-popup" className='plotPopup hide'>
                     <div className="imgArea">
@@ -228,12 +234,7 @@ function PerspectiveRegion155Page() {
                     </div>
                 </div>
             )}
-            <button onClick={svgLeft} className="svgNavbutton" style={{ left: 0 }}>
-                <ArrowBigLeft />
-            </button>
-            <button onClick={svgRight} className="svgNavbutton" style={{ right: 0 }}>
-                <ArrowBigRight />
-            </button>
+            
         </section>
     )
 }
