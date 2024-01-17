@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/3d.css';
 import '../styles/card.css';
-import Test from '../assets/Test_2.jpg';
 import Tags from './cards/tags';
+import AppartementImage from '../assets/houseImages/Appartement.jpg';
+import DijkappartementImage from '../assets/houseImages/Dijkappartement.jpg';
+import DijkmaisonnetteImage from '../assets/houseImages/Dijkmaisonnette.jpg';
+import DriveInWoningImage from '../assets/houseImages/Drive-in woning.jpg';
+import MaisonnetteImage from '../assets/houseImages/Maisonnette.jpg';
+import ParkappartementImage from '../assets/houseImages/Parkappartement.jpg';
+import ParkmaisonnetteImage from '../assets/houseImages/Parkmaisonnette.jpg';
+import StadswoningImage from '../assets/houseImages/Stadswoning.jpg';
+import TerraswoningImage from '../assets/houseImages/Terraswoning.jpg';
+import ValleiwoningImage from '../assets/houseImages/Valleiwoning.jpg';
+import ParkeerplaatsImage from '../assets/houseImages/Parkeerplaats.jpg';
 
 import jsonData from '../assets/wonen-in-de-kuil.json';
 
@@ -15,6 +25,20 @@ function PerspectiveRegion27Page() {
     const [theSection, setSection] = useState(null);
     const [svg, setSvg] = useState(null);
     const [svgStandard, setSvgStandard] = useState(null);
+
+    const imageMap = {
+        'Appartement': AppartementImage,
+        'Dijkappartement': DijkappartementImage,
+        'Dijkmaisonnette': DijkmaisonnetteImage,
+        'Drive-in woning': DriveInWoningImage,
+        'Maisonnette': MaisonnetteImage,
+        'Parkappartement': ParkappartementImage,
+        'Parkmaisonnette': ParkmaisonnetteImage,
+        'Stadswoning': StadswoningImage,
+        'Terraswoning': TerraswoningImage,
+        'Valleiwoning': ValleiwoningImage,
+        'Parkeerplaats': ParkeerplaatsImage,
+    };
 
     useEffect(() => {
         const popupElement = document.getElementById('js-popup');
@@ -66,21 +90,21 @@ function PerspectiveRegion27Page() {
 
     function onDragStop() {
         if (popupMoved) {
-          if (popup) {
-            let adres = document.getElementById('adres');
-            if (popupMovement > 50) {
-              popup.style.transform = `translateX(-50%) translateY(150%)`;
-              popupMovement = 0;
-            } else if (popupMovement < -100) {
-              window.location.href = `/${adres.innerHTML}`;
-            } else {
-              popupMovement = 0;
-              popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
+            if (popup) {
+                let adres = document.getElementById('adres');
+                if (popupMovement > 50) {
+                    popup.style.transform = `translateX(-50%) translateY(150%)`;
+                    popupMovement = 0;
+                } else if (popupMovement < -100) {
+                    window.location.href = `/${adres.innerHTML}`;
+                } else {
+                    popupMovement = 0;
+                    popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
+                }
+                initialTouchY = undefined;
             }
-            initialTouchY = undefined;
-          }
         }
-      }
+    }
 
     function sectionDrag(event) {
         let clientX = 0;
@@ -159,7 +183,7 @@ function PerspectiveRegion27Page() {
             {currentPlot && (
                 <div id="js-popup" className='plotPopup hide'>
                     <div className="imgArea">
-                        <img draggable="false" id='img' src={Test} alt='house' />
+                        <img draggable="false" id='img' src={imageMap[currentPlot.type]} alt={currentPlot.type} />
                         <p id='adres'>{currentPlot.number}</p>
                         <p id='price' style={{ backgroundColor: (currentPlot.status === 'verkocht' ? '#FF0000' : currentPlot.status === 'in-optie' ? '#FFA500' : '#04B900') }}>
                             €{currentPlot.price}

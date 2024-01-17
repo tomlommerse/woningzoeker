@@ -26,12 +26,9 @@ const FilterOverlay = ({ onClose }) => {
   };
 
   const handleRoomFilterChange = (event) => {
-    setRoomFilter(event.target.value);
   };
 
   const applyFilters = () => {
-    onFilterChange(roomFilter);
-    toggleOverlay(); // Close the overlay after applying filters
   };
 
   return (
