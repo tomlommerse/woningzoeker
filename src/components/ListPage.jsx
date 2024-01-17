@@ -86,7 +86,7 @@ const ListPage = () => {
 
             {/*overlay openen*/}
             <button className="filter_button" onClick={openOverlay}>
-                <img src="./img/icon/filter.svg"/>
+                <img className="iets" src="./img/icon/filter.svg"/>
             </button>
             {isOverlayOpen && <FilterOverlay onClose={closeOverlay} />}
 
