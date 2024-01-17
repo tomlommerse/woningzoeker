@@ -32,10 +32,15 @@
 
 .terugKnop {
     top: 9.8vh;
-    width: 100px;
-    height: 49px;
+    width: 120px;
+    height: 59px;
     position: absolute;
     background-color: var(--color-orange);
+    border-width: 0px;
     border-radius: 20px 0px;
     transform: translateX(-14px);
+}
+
+.terugKnopImage{
+    filter: invert(100%) sepia(14%) saturate(473%) hue-rotate(153deg) brightness(98%) contrast(94%);
 }

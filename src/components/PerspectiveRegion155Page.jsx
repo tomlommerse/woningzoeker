@@ -206,7 +206,7 @@ function PerspectiveRegion155Page() {
                 </svg>
                 <a href="/3D">
                     <button className='terugKnop' style={{left: 0}}>
-                        <ArrowBigLeft/>
+                        <ArrowBigLeft className='terugKnopImage'/>
                     </button>
                 </a>
             </section>

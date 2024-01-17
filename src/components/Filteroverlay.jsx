@@ -25,12 +25,6 @@ const FilterOverlay = ({ onClose }) => {
     window.location.reload(); // Reload the page
   };
 
-  const handleRoomFilterChange = (event) => {
-  };
-
-  const applyFilters = () => {
-  };
-
   return (
     <div className="filter-overlay">
       <h3 className='dropdownTitle'>Woningtype</h3>

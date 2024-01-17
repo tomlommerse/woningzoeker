@@ -11,7 +11,7 @@
     padding: 10px;
 }
 
-.iets{
+.filterbuttonimg{
     filter: invert(100%) sepia(14%) saturate(473%) hue-rotate(153deg) brightness(98%) contrast(94%);
     width: 50px;
 }
