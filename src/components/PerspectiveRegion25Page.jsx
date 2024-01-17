@@ -13,6 +13,7 @@ import StadswoningImage from '../assets/houseImages/Stadswoning.jpg';
 import TerraswoningImage from '../assets/houseImages/Terraswoning.jpg';
 import ValleiwoningImage from '../assets/houseImages/Valleiwoning.jpg';
 import ParkeerplaatsImage from '../assets/houseImages/Parkeerplaats.jpg';
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
 import jsonData from '../assets/wonen-in-de-kuil.json';
 
@@ -22,9 +23,10 @@ function PerspectiveRegion25Page() {
   const plothotspots = hotspots.filter((hotspot) => hotspot.layer_id === 25);
   const [currentPlot, setCurrentPlot] = useState(plots[0]);
   const [popup, setPopup] = useState(null);
-  const [theSection, setSection] = useState(null);
+  // const [theSection, setSection] = useState(null);
   const [svg, setSvg] = useState(null);
   const [svgStandard, setSvgStandard] = useState(null);
+  const svgLimit = 700;
 
   const imageMap = {
     'Appartement': AppartementImage,
@@ -43,8 +45,8 @@ function PerspectiveRegion25Page() {
   useEffect(() => {
     const popupElement = document.getElementById('js-popup');
     setPopup(popupElement);
-    const theSectionElement = document.getElementById('js-3dsection');
-    setSection(theSectionElement);
+    // const theSectionElement = document.getElementById('js-3dsection');
+    // setSection(theSectionElement);
     const svgElement = document.getElementById('js-svg');
     setSvg(svgElement);
     setSvgStandard(svgElement.getBoundingClientRect().width * 0.5);
@@ -54,7 +56,7 @@ function PerspectiveRegion25Page() {
   var svgMovement = -svgStandard;
 
   let initialTouchY;
-  let lastTouchX;
+  // let lastTouchX;
   let popupMoved;
 
   function changeCurrentPlot(spot) {
@@ -106,25 +108,48 @@ function PerspectiveRegion25Page() {
     }
   }
 
-  function sectionDrag(event) {
-    let clientX = 0;
-    if (theSection) {
-      if (event.type === 'mousemove') {
-        clientX = event.movementX;
-        svgMovement = svgMovement + clientX;
-      } else if (event.type === 'touchmove') {
-        if (lastTouchX) {
-          clientX = event.touches[0].clientX - lastTouchX;
-        }
-        lastTouchX = event.touches[0].clientX;
-        svgMovement = svgMovement + clientX;
-      }
-      if (svgMovement > (700 + -svgStandard)) {
-        svgMovement = (700 + -svgStandard);
-      } else if (svgMovement < (-700 + -svgStandard)) {
-        svgMovement = (-700 + -svgStandard);
-      }
+  // function sectionDrag(event) {
+  //   let clientX = 0;
+  //   if (theSection) {
+  //     if (event.type === 'mousemove') {
+  //       clientX = event.movementX;
+  //       svgMovement = svgMovement + clientX;
+  //     } else if (event.type === 'touchmove') {
+  //       if (lastTouchX) {
+  //         clientX = event.touches[0].clientX - lastTouchX;
+  //       }
+  //       lastTouchX = event.touches[0].clientX;
+  //       svgMovement = svgMovement + clientX;
+  //     }
+  //     if (svgMovement > (700 + -svgStandard)) {
+  //       svgMovement = (700 + -svgStandard);
+  //     } else if (svgMovement < (-700 + -svgStandard)) {
+  //       svgMovement = (-700 + -svgStandard);
+  //     }
+  //     svg.style.transform = `translateX(${(svgMovement)}px) translateY(-36%)`;
+  //   }
+  // }
+
+  function svgLeft() {
+    if (svg) {
+      svgMovement = svgMovement + 300;
+      svgLimitCheck()
       svg.style.transform = `translateX(${(svgMovement)}px) translateY(-36%)`;
+    }
+  }
+  function svgRight() {
+    if (svg) {
+      svgMovement = svgMovement - 300;
+      svgLimitCheck()
+      svg.style.transform = `translateX(${(svgMovement)}px) translateY(-36%)`;
+    }
+  }
+
+  function svgLimitCheck() {
+    if (svgMovement > (svgLimit + -svgStandard)) {
+      svgMovement = (svgLimit + -svgStandard);
+    } else if (svgMovement < (-svgLimit + -svgStandard)) {
+      svgMovement = (-svgLimit + -svgStandard);
     }
   }
 
@@ -151,24 +176,24 @@ function PerspectiveRegion25Page() {
     }
   }, [popup]);
 
-  useEffect(() => {
-    if (theSection) {
-      theSection.addEventListener("mousedown", () => {
-        theSection.addEventListener("mousemove", sectionDrag);
-      });
-      document.addEventListener("mouseup", () => {
-        theSection.removeEventListener("mousemove", sectionDrag)
-        lastTouchX = undefined;
-      });
-      theSection.addEventListener("touchstart", () => {
-        theSection.addEventListener("touchmove", sectionDrag);
-      });
-      document.addEventListener("touchend", () => {
-        theSection.removeEventListener("touchmove", sectionDrag);
-        lastTouchX = undefined;
-      });
-    }
-  }, [theSection]);
+  // useEffect(() => {
+  //   if (theSection) {
+  //     theSection.addEventListener("mousedown", () => {
+  //       theSection.addEventListener("mousemove", sectionDrag);
+  //     });
+  //     document.addEventListener("mouseup", () => {
+  //       theSection.removeEventListener("mousemove", sectionDrag)
+  //       lastTouchX = undefined;
+  //     });
+  //     theSection.addEventListener("touchstart", () => {
+  //       theSection.addEventListener("touchmove", sectionDrag);
+  //     });
+  //     document.addEventListener("touchend", () => {
+  //       theSection.removeEventListener("touchmove", sectionDrag);
+  //       lastTouchX = undefined;
+  //     });
+  //   }
+  // }, [theSection]);
 
   return (
     <section className='unscrollable'>
@@ -198,6 +223,12 @@ function PerspectiveRegion25Page() {
           </div>
         </div>
       )}
+      <button onClick={svgLeft} className="svgNavbutton" style={{ left: 0 }}>
+        <ArrowBigLeft />
+      </button>
+      <button onClick={svgRight} className="svgNavbutton" style={{ right: 0 }}>
+        <ArrowBigRight />
+      </button>
     </section>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/3d.css';
 import '../styles/card.css';
 import { Link } from 'react-router-dom';
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
 import jsonData from '../assets/wonen-in-de-kuil.json';
 
@@ -9,13 +10,14 @@ import jsonData from '../assets/wonen-in-de-kuil.json';
 function PerspectivePage() {
   const { hotspots } = jsonData;
   const regions = hotspots.filter((hotspot) => hotspot.layer_id === 21);
-  const [theSection, setSection] = useState(null);
+  // const [theSection, setSection] = useState(null);
   const [svg, setSvg] = useState(null);
   const [svgStandard, setSvgStandard] = useState(null);
+  const svgLimit = 600;
 
   useEffect(() => {
-    const theSectionElement = document.getElementById('js-3dsection');
-    setSection(theSectionElement);
+    // const theSectionElement = document.getElementById('js-3dsection');
+    // setSection(theSectionElement);
     const svgElement = document.getElementById('js-svg');
     setSvg(svgElement);
     setSvgStandard(svgElement.getBoundingClientRect().width * 0.5);
@@ -23,48 +25,71 @@ function PerspectivePage() {
 
   var svgMovement = -svgStandard;
 
-  let lastTouchX;
+  // let lastTouchX;
 
-  function sectionDrag(event) {
-    let clientX = 0;
-    if (theSection) {
-      if (event.type === 'mousemove') {
-        clientX = event.movementX;
-        svgMovement = svgMovement + clientX;
-      } else if (event.type === 'touchmove') {
-        if (lastTouchX) {
-          clientX = event.touches[0].clientX - lastTouchX;
-        }
-        lastTouchX = event.touches[0].clientX;
-        svgMovement = svgMovement + clientX;
-      }
-      if (svgMovement > (600 + -svgStandard)) {
-        svgMovement = (600 + -svgStandard);
-      } else if (svgMovement < (-600 + -svgStandard)) {
-        svgMovement = (-600 + -svgStandard);
-      }
+  // function sectionDrag(event) {
+  //   let clientX = 0;
+  //   if (theSection) {
+  //     if (event.type === 'mousemove') {
+  //       clientX = event.movementX;
+  //       svgMovement = svgMovement + clientX;
+  //     } else if (event.type === 'touchmove') {
+  //       if (lastTouchX) {
+  //         clientX = event.touches[0].clientX - lastTouchX;
+  //       }
+  //       lastTouchX = event.touches[0].clientX;
+  //       svgMovement = svgMovement + clientX;
+  //     }
+  //     if (svgMovement > (600 + -svgStandard)) {
+  //       svgMovement = (600 + -svgStandard);
+  //     } else if (svgMovement < (-600 + -svgStandard)) {
+  //       svgMovement = (-600 + -svgStandard);
+  //     }
+  //     svg.style.transform = `translateX(${(svgMovement)}px)`;
+  //   }
+  // }
+
+  function svgLeft() {
+    if (svg) {
+      svgMovement = svgMovement + 300;
+      svgLimitCheck()
+      svg.style.transform = `translateX(${(svgMovement)}px)`;
+    }
+  }
+  function svgRight() {
+    if (svg) {
+      svgMovement = svgMovement - 300;
+      svgLimitCheck()
       svg.style.transform = `translateX(${(svgMovement)}px)`;
     }
   }
 
-  useEffect(() => {
-    if (theSection) {
-      theSection.addEventListener("mousedown", () => {
-        theSection.addEventListener("mousemove", sectionDrag);
-      });
-      document.addEventListener("mouseup", () => {
-        theSection.removeEventListener("mousemove", sectionDrag)
-        lastTouchX = undefined;
-      });
-      theSection.addEventListener("touchstart", () => {
-        theSection.addEventListener("touchmove", sectionDrag);
-      });
-      document.addEventListener("touchend", () => {
-        theSection.removeEventListener("touchmove", sectionDrag);
-        lastTouchX = undefined;
-      });
+  function svgLimitCheck() {
+    if (svgMovement > (svgLimit + -svgStandard)) {
+      svgMovement = (svgLimit + -svgStandard);
+    } else if (svgMovement < (-svgLimit + -svgStandard)) {
+      svgMovement = (-svgLimit + -svgStandard);
     }
-  }, [theSection]);
+  }
+
+  // useEffect(() => {
+  //   if (theSection) {
+  //     theSection.addEventListener("mousedown", () => {
+  //       theSection.addEventListener("mousemove", sectionDrag);
+  //     });
+  //     document.addEventListener("mouseup", () => {
+  //       theSection.removeEventListener("mousemove", sectionDrag)
+  //       lastTouchX = undefined;
+  //     });
+  //     theSection.addEventListener("touchstart", () => {
+  //       theSection.addEventListener("touchmove", sectionDrag);
+  //     });
+  //     document.addEventListener("touchend", () => {
+  //       theSection.removeEventListener("touchmove", sectionDrag);
+  //       lastTouchX = undefined;
+  //     });
+  //   }
+  // }, [theSection]);
 
   return (
     <section className='unscrollable'>
@@ -78,6 +103,12 @@ function PerspectivePage() {
           ))}
         </svg>
       </section>
+      <button onClick={svgLeft} className="svgNavbutton" style={{ left: 0 }}>
+        <ArrowBigLeft />
+      </button>
+      <button onClick={svgRight} className="svgNavbutton" style={{ right: 0 }}>
+        <ArrowBigRight />
+      </button>
     </section>
   )
 }

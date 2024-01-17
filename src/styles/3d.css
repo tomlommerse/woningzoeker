@@ -14,8 +14,17 @@
     margin-left: 50%;
     display: block;
     transform: translateX(-50%);
+    transition: 0.3s;
 }
 
 .svgTranslateY svg {
     transform: translateX(-50%) translateY(-36%);
+}
+.svgNavbutton{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11vw;
+    height: 8vh;
+    opacity: 0.9;
 }
