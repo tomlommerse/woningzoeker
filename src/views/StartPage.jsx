@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import '../styles/start.css';
 import Dropdown from '../components/homesearch/Dropdown';
 import pic from '../assets/startpic.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function StartPage() {
     const [selectedType, setSelectedType] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [accessibility, setAccessibility] = useState(true);
+    const navigate = useNavigate();
 
     const search = () => {
         localStorage.setItem('selectedType', selectedType);
@@ -17,7 +19,7 @@ function StartPage() {
 
         console.log('LocalStorage:', localStorage);
 
-        window.location.href = '/Zoek';
+        navigate("/Zoek");
     };
 
     const css_Change = () => {

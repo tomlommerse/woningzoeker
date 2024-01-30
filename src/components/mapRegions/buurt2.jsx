@@ -23,7 +23,7 @@ function Buurt2() {
     const plothotspots = hotspots.filter((hotspot) => hotspot.layer_id === 200);
     const [currentPlot, setCurrentPlot] = useState(plots[0]);
     const [popup, setPopup] = useState(null);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
 
     useEffect(() => {
