@@ -23,13 +23,15 @@ function StartPage() {
     const css_Change = () => {
         if (accessibility === false) {
             setAccessibility(true);
+            localStorage.setItem('accessibility', accessibility);
             console.log(accessibility)
-
         } else {
             setAccessibility(false);
+            localStorage.setItem('accessibility', accessibility);
             console.log(accessibility);
         }
         
+
         if (accessibility === true) {
             console.log("accessibility_check is ON")
              document.getElementById("zoekButton").style.width= "80vw"
@@ -37,6 +39,12 @@ function StartPage() {
              document.getElementById("zoekButton").style.fontSize= "12vw"
              document.getElementById("homeText").style.fontSize= "26px"
              document.getElementById("searchbox").setAttribute("class", "searchbox_Fixed")
+             document.documentElement.style.setProperty('--color-primary', '#161616');
+             document.documentElement.style.setProperty('--color-secondary', '#656565');
+             document.documentElement.style.setProperty('--color-tertiary', '#777777');
+             document.documentElement.style.setProperty('--color-tertiary-dark', '#5C5C5C');
+             document.documentElement.style.setProperty('--color-white', '#F0F0F0');
+             document.documentElement.style.setProperty('--color-orange', '#757575');
         } else{
             console.log("accessibility_check is OFF")
             document.getElementById("zoekButton").style.width= "209px"
@@ -44,8 +52,14 @@ function StartPage() {
             document.getElementById("zoekButton").style.fontSize= "23px"
             document.getElementById("homeText").style.fontSize= "18px"
             document.getElementById("searchbox").setAttribute("class", "searchbox")
+             document.documentElement.style.setProperty('--color-primary', '#08192F');
+             document.documentElement.style.setProperty('--color-secondary', '#007bff');
+             document.documentElement.style.setProperty('--color-tertiary', '#706EBC');
+             document.documentElement.style.setProperty('--color-tertiary-dark', '#55529e');
+             document.documentElement.style.setProperty('--color-white', '#EDF2EF');
+             document.documentElement.style.setProperty('--color-orange', '#FF4500');
         }
-        localStorage.setItem('accessibility', accessibility);
+        
         
     }
 

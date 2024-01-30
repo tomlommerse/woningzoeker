@@ -3,6 +3,8 @@ import '../../styles/3d.css';
 import '../../styles/card.css';
 import Test from '../../assets/Test_2.jpg';
 import Tags from '../cards/tags';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import jsonData from '../../assets/wonen-in-de-kuil.json';
 import '../../styles/map.css';
@@ -16,10 +18,12 @@ const MAP = TestMap
 
 function Buurt2() {
 
+
     const { plots, hotspots } = jsonData;
     const plothotspots = hotspots.filter((hotspot) => hotspot.layer_id === 200);
     const [currentPlot, setCurrentPlot] = useState(plots[0]);
     const [popup, setPopup] = useState(null);
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -72,7 +76,7 @@ function Buurt2() {
               popup.classList.add("hide");
               popupMovement = 0;
             } else if (popupMovement < -100) {
-              window.location.href = `/${adres.innerHTML}`;
+              navigate(`/${adres.innerHTML}`);
             } else {
               popupMovement = 0;
               popup.style.transform = `translateX(-50%) translateY(${popupMovement}px)`;
@@ -155,11 +159,11 @@ function Buurt2() {
                 ))}
             </svg> */}
 
-            <a href="kaart">
+              <Link to={"/kaart"}>
                 <button className='terugKnop' style={{left: 0}}>
                 <ArrowBigLeft/>
                 </button>
-            </a>
+              </Link>
             
             <button onClick={mapLeft} className="mapImgNavbutton" style={{left: 0}}>
                 <ArrowBigLeft/>

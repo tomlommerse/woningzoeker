@@ -34,7 +34,7 @@ function App() {
         <Route path="/3D/155" element={<PerspectiveRegion155Page />} />
         <Route path="/3D/157" element={<PerspectiveRegion157Page />} />
         {/* <Route path="/buurt1" element={<Buurt1 />}/> */}
-        <Route path="/buurt2" element={<Buurt2 />}/>
+        <Route path="Kaart/buurt2" element={<Buurt2 />}/>
         {/* <Route path="/buurt3" element={<Buurt3 />}/>
         <Route path="/buurt4" element={<Buurt4 />}/> */}
       </Routes>

@@ -56,8 +56,7 @@ const ListPage = () => {
         console.log(accessibility)
         if (accessibility === "true") {
             console.log("accessibility_check is ON")
-            //  document.getElementById("filterButton").style.fontSize = "25px";
-             document.getElementById("filterButton").setAttribute("class", "filter_button_Fixed");
+                document.getElementById("filterButton").setAttribute("class", "filter_button_Fixed");
         } else{
             console.log("accessibility_check is OFF")
         }

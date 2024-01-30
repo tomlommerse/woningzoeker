@@ -32,11 +32,10 @@ const accessibility_check = () => {
   console.log("accessibility: ",accessibility)
   if (accessibility === "true") {
       console.log("accessibility_check is ON")
-      //  document.getElementById("filterButton").style.fontSize = "25px";
        document.getElementById("info").setAttribute("class", "info_Fixed");
        document.getElementById("omschrijving").setAttribute("class", "omschrijving_Fixed");
        document.getElementById("kenmerken").setAttribute("class", "kenmerken_Fixed");
-       document.getElementById("detailcontent").setAttribute("class", "detailcontent_Fixed")
+       document.getElementById("detailcontent").setAttribute("class", "detailcontent_Fixed")    
   } else{
       console.log("accessibility_check is OFF")
   }
