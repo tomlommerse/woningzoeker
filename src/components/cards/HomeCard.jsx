@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/card.css';
 import Tags from './tags';
-import Test from '../../assets/houseImages/Appartement.jpg';
+// import Test from '../../assets/houseImages/Appartement.jpg';
 import AppartementImage from '../../assets/houseImages/Appartement.jpg';
 import DijkappartementImage from '../../assets/houseImages/Dijkappartement.jpg';
 import DijkmaisonnetteImage from '../../assets/houseImages/Dijkmaisonnette.jpg';

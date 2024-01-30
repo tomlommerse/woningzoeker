@@ -1,8 +1,27 @@
-.info{
+#info{
     padding: 5%;
     padding-bottom: 27vw;
 }
 
+.info_Fixed h1{
+    font-size: 110%;
+}
+
+.omschrijving_Fixed h1{
+    font-size: 150%;
+}
+
+.omschrijving_Fixed p{
+    font-size: 130%;
+}
+
+.kenmerken_Fixed h1{
+    font-size: 250%;
+}
+
+.kenmerken_Fixed p{
+    font-size: 150%;
+}
 .specs{
     font-size: 6vw;
     font-style: normal;
@@ -19,12 +38,14 @@
     font-weight: 400;
 }
 
-.omschrijving{
+#omschrijving{
     padding-top: 5%;
     font-size: 5vw;
     font-style: normal;
     font-weight: 400;
 }
+
+
 
 .kenmerken{
     padding-top: 10%;

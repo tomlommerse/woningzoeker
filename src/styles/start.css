@@ -3,12 +3,20 @@
     transform: translateY(-5%);
 }
 
-.searchbox{
+#searchbox{
     background-color: var(--color-primary);
     padding-top: 5%;
     padding-bottom: 5%;
     transform: translateY(-10%);
 }
+
+.searchbox_Fixed .dropdown_box{
+    font-size: 30px;
+    height: 50px;
+    width: 75vw;
+}
+
+
 
 .searchboxContainer{
     padding-top: 5%;
@@ -21,7 +29,8 @@
 
 
 
-.zoekButton{
+
+#zoekButton{
     width: 209px;
     height: 45px;
     border-radius: 999px;
@@ -32,7 +41,7 @@
     border: 0px;
 }
 
-.homeText{
+#homeText{
     text-align: left;
     padding: 20px;
     color: var(--color-black);
@@ -54,16 +63,35 @@
     color: var(--color-black);
 }
 
+.dropdown_box{
+    width: 100%;
+    height: 36px;
+    border-radius: 2px;
+    border-style: solid;
+    background: var(--color-white);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border-width: 3px;
+    padding-left: 10px;
+    color: var(--color-black);
+}
+
+
 .dropdown_options{
     color: var(--color-black);
 }
 
 .searchboxContainer > .dropdown_box{
-    width: 50vw;
+    width: 66vw;
     border: none;
 }
 
 .accessibility_button{
     transform: translateY(125px);
+    
+}
+
+#buttonA{
     background-color: var(--color-orange);
 }

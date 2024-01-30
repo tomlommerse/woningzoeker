@@ -1,5 +1,5 @@
 //views/StartPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/start.css';
 import Dropdown from '../components/homesearch/Dropdown';
 import pic from '../assets/startpic.jpg';
@@ -8,6 +8,7 @@ function StartPage() {
     const [selectedType, setSelectedType] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
+    const [accessibility, setAccessibility] = useState(true);
 
     const search = () => {
         localStorage.setItem('selectedType', selectedType);
@@ -19,10 +20,39 @@ function StartPage() {
         window.location.href = '/Zoek';
     };
 
+    const css_Change = () => {
+        if (accessibility === false) {
+            setAccessibility(true);
+            console.log(accessibility)
+
+        } else {
+            setAccessibility(false);
+            console.log(accessibility);
+        }
+        
+        if (accessibility === true) {
+            console.log("accessibility_check is ON")
+             document.getElementById("zoekButton").style.width= "80vw"
+             document.getElementById("zoekButton").style.height= "25vw"
+             document.getElementById("zoekButton").style.fontSize= "12vw"
+             document.getElementById("homeText").style.fontSize= "26px"
+             document.getElementById("searchbox").setAttribute("class", "searchbox_Fixed")
+        } else{
+            console.log("accessibility_check is OFF")
+            document.getElementById("zoekButton").style.width= "209px"
+            document.getElementById("zoekButton").style.height= "45px"
+            document.getElementById("zoekButton").style.fontSize= "23px"
+            document.getElementById("homeText").style.fontSize= "18px"
+            document.getElementById("searchbox").setAttribute("class", "searchbox")
+        }
+        localStorage.setItem('accessibility', accessibility);
+        
+    }
+
     return (
         <main>
             <img id='startpic' src={pic} alt='house' />
-            <section className='searchbox'>
+            <section id='searchbox'>
 
             <div className='searchboxContainer'>
                 <Dropdown className="pageDrop" placeholder='Woningtype' dataKey="type" onChange={(value) => setSelectedType(value)} />
@@ -30,14 +60,14 @@ function StartPage() {
                 <Dropdown className="pageDrop" placeholder='Minimum Prijs' dataKey="price" roundBy={100000} roundDirection="down" onChange={(value) => setMinPrice(value)} />
                 
                 <Dropdown className="pageDrop" placeholder='Maximum Prijs' dataKey="price" roundBy={100000} roundDirection="up" onChange={(value) => setMaxPrice(value)} />
-                <button className='zoekButton' onClick={search}>
+                <button id='zoekButton' onClick={search}>
                     Zoek
                 </button>
             </div>
                 
 
             </section>
-            <section className='homeText'>
+            <section id='homeText'>
                 <h1>De groene vallei op Zuid</h1>
                 <p>
                 De Kuil bestaat uit 232 woningen, van fijne appartementen tot flexibele eengezinswoningen, 
@@ -48,8 +78,8 @@ function StartPage() {
                 </p>
             </section>
 
-            <button className="filter_button accessibility_button">
-                <img className="filterbuttonimg" src="./img/icon/accessibility.svg"/>
+            <button onClick={css_Change} id='buttonA' className="filter_button accessibility_button">
+                <img className="filterbuttonimg" alt='filter' src="./img/icon/accessibility.svg"/>
             </button>
         </main>
     );

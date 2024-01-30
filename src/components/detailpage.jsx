@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import Button from './Woningpagina/button.jsx';
 import Test1 from '../assets/Test_2.jpg';
 import Test2 from '../assets/Test_3.jpg';
@@ -9,14 +9,40 @@ import { useParams } from 'react-router-dom';
 import "../styles/detail.css" 
 import ImageSlider from './Woningpagina/ImageSlider.tsx';
 import jsonData from '../assets/wonen-in-de-kuil.json';
+import '../styles/button.css';
 
 const FOTOS = [Test1, Test2, Test3, Test4, Test5]
 
 
 
 function Detailpage() {
+  const [accessibility, setAccessibility] = useState('');
 
-  console.log('bereikt')
+
+  useEffect(() => {
+    const accessibility_on = localStorage.getItem('accessibility');
+
+    setAccessibility(accessibility_on);
+    console.log(accessibility)
+    accessibility_check();
+
+}, [accessibility]);
+
+const accessibility_check = () => {
+  console.log("accessibility: ",accessibility)
+  if (accessibility === "true") {
+      console.log("accessibility_check is ON")
+      //  document.getElementById("filterButton").style.fontSize = "25px";
+       document.getElementById("info").setAttribute("class", "info_Fixed");
+       document.getElementById("omschrijving").setAttribute("class", "omschrijving_Fixed");
+       document.getElementById("kenmerken").setAttribute("class", "kenmerken_Fixed");
+       document.getElementById("detailcontent").setAttribute("class", "detailcontent_Fixed")
+  } else{
+      console.log("accessibility_check is OFF")
+  }
+ 
+}
+
   const { home } = useParams();
   const plot = jsonData.plots.find((p) => p.number === home);
   if (!plot) {
@@ -27,13 +53,13 @@ function Detailpage() {
         <div style={{ maxWidth: "1200px", width: "100%", height: "270px", margin: "0 auto"}}>
       <ImageSlider imageUrls={FOTOS}/>
       </div>
-      <section className='detailcontent'>
+      <section id='detailcontent'>
       <Button buttonnaam={'Inschrijven'}/>
       <Button buttonnaam={'Brochure'}/>
       
       </section>
     
-      <section className='info'>
+      <section id='info'>
         <section className='specs'>
           <section>
             <h1>Huis:{plot.number}</h1>
@@ -47,7 +73,7 @@ function Detailpage() {
         </section>
         
         
-        <section className='omschrijving'>
+        <section id='omschrijving'>
            <h1>Omschrijving</h1>
            <p>Deze gezellige {plot.type} woning 
               is nu te koop vanaf €{plot.price} euro
@@ -55,7 +81,7 @@ function Detailpage() {
               De woning telt {plot.living_surface} m2 aan oppervlakte waarvan {plot.plot_surface} m2 aan huisoppervlakte</p>
         </section>
 
-        <section className='kenmerken'>
+        <section id='kenmerken'>
           <h1>Kenmerken</h1>
           <p>Status: {plot.status}</p>
           <p>Vraagprijs per m2: €{Math.round(plot.price / plot.living_surface)}</p>

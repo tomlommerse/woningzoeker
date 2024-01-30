@@ -11,6 +11,16 @@
     padding: 10px;
 }
 
+.filter_button_Fixed {
+    height: 7vh;
+    display: flex;
+    overflow-x: scroll;
+    background-color: var(--color-primary);
+    border-radius: 0px;
+    margin-top: -1px;
+    font-size: 25px;
+}
+
 .filterbuttonimg{
     filter: invert(100%) sepia(14%) saturate(473%) hue-rotate(153deg) brightness(98%) contrast(94%);
     width: 50px;

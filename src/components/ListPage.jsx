@@ -15,6 +15,7 @@ const ListPage = () => {
     const [parkingCount, setParkingCount] = useState(null);
     const [maxPlot_surface, setMaxPlot_surface] = useState(null);
     const [minPlot_surface, setMinPlot_surface] = useState(null);
+    const [accessibility, setAccessibility] = useState('');
 
     const [filterOptions, setFilterOptions] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -31,6 +32,7 @@ const ListPage = () => {
         const storedParkingCount = localStorage.getItem('parking_count');
         const storedMaxPlot_surface = localStorage.getItem('maxPlot_surface');
         const storedMinPlot_surface = localStorage.getItem('minPlot_surface');
+        const accessibility_on = localStorage.getItem('accessibility');
 
         setActiveFilter(storedType);
         setMinPrice(storedMinPrice);
@@ -38,12 +40,29 @@ const ListPage = () => {
         setParkingCount(storedParkingCount);
         setMaxPlot_surface(storedMaxPlot_surface);
         setMinPlot_surface(storedMinPlot_surface);
-    }, []);
+        setAccessibility(accessibility_on);
+        console.log(accessibility)
+        accessibility_check();
+            console.log('LocalStorage:', localStorage);
+    
+    }, [accessibility]);
 
     const handleFilterClick = (type) => {
         setActiveFilter(type);
         localStorage.setItem('selectedType', type);
     };
+
+    const accessibility_check = () => {
+        console.log(accessibility)
+        if (accessibility === "true") {
+            console.log("accessibility_check is ON")
+            //  document.getElementById("filterButton").style.fontSize = "25px";
+             document.getElementById("filterButton").setAttribute("class", "filter_button_Fixed");
+        } else{
+            console.log("accessibility_check is OFF")
+        }
+       
+    }
 
     const filteredPlots = plots.filter((plot) => {
         const typeCondition = !activeFilter || plot.type === activeFilter;
@@ -69,7 +88,7 @@ const ListPage = () => {
 
     return (
         <main>
-            <div className="filter-buttons">
+            <div className="filter-buttons" id='filterButton'>
                 {filterOptions.map((filterType) => (
                     <ListPageMainFilter
                         key={filterType}
@@ -81,7 +100,7 @@ const ListPage = () => {
             </div>
 
             <button className="filter_button" onClick={openOverlay}>
-                <img className="filterbuttonimg" src="./img/icon/filter.svg"/>
+                <img className="filterbuttonimg" alt='filters' src="./img/icon/filter.svg"/>
             </button>
             {isOverlayOpen && <FilterOverlay onClose={closeOverlay} />}
 
